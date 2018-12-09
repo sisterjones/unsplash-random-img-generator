@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Mockup-v-01" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-4" transform="translate(-150.000000, -15.000000)">
+            <g id="Atoms-/-Logo-/-Brand-/-Sign" transform="translate(150.000000, 15.000000)">
+                <path d="M4.57142857,0 L27.4285714,0 C29.9533017,-4.63785429e-16 32,2.04669829 32,4.57142857 L32,27.4285714 C32,29.9533017 29.9533017,32 27.4285714,32 L4.57142857,32 C2.04669829,32 3.09190286e-16,29.9533017 0,27.4285714 L0,4.57142857 C-3.09190286e-16,2.04669829 2.04669829,4.63785429e-16 4.57142857,0 Z" id="Rectangle-2" fill="#13325C"></path>
+                <polygon id="R" fill="#FFFFFF" points="10.5142857 24.2368 10.5142857 7.77142857 21.5387191 7.77142857 21.5387191 10.8839302 14.2207763 10.8839302 14.2207763 14.3290657 17.8334621 10.8839302 21.5387191 10.8839302 16.731216 16.0028219 21.5387191 24.2285714 19.6933002 24.2285714 14.2207763 17.8285714 11.9232492 24.2285714"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

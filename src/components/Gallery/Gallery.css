@@ -1,0 +1,42 @@
+.gallery-container {
+
+}
+
+/* 
+.image-gallery {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 95vw;
+    height: 120vw;
+    line-height: 0;
+    column-gap: 0;
+} */
+
+.imageStyle {
+    height: auto;
+    width: 33%;
+    margin: 0;
+    border: 3px solid white;
+    line-height: 0;
+    object-fit: cover;
+}
+
+.frozenImageStyle {
+    border: 3px solid blue;
+    margin: -3px;
+    width: 23vw;
+    height: auto;
+}
+
+.unfrozenStyle {
+    height: auto;
+    width: 100%;
+    position: relative;
+    list-style: none;
+}
+
+.unfrozenStyle img {
+    height: auto;
+    width: 100%;
+}

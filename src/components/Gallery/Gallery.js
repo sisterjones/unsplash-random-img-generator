@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Image from './../Image/Image'
 import './Gallery.css'
 
 class Gallery extends React.Component {
@@ -35,8 +35,11 @@ class Gallery extends React.Component {
     mapImages() {
         if (this.props.photos !== []) {
         let photoSet = this.props.photos.map((image) => (
-                <img id={image.id}
-            onClick={this.freezeImage} className='imageStyle' src={image.url} alt='random from unsplash'/>
+                <Image 
+                    imageSource={image.url} 
+                    altTag='randomly generated from Unsplash.com'
+                    id={image.id}
+                />
         ))
         return photoSet
         } else {

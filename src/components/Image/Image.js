@@ -65,7 +65,10 @@ class Image extends React.Component {
                         {this.state.imageAnimation ?
                             <FontAwesomeIcon icon={faCheck} class='--check --icon' />
                             :
-                            <FontAwesomeIcon icon={faArrowAltCircleDown} id={`dl-icon-${this.props.id}`} onClick={this.forceDownload} class='--dwn --icon' />
+                            <div>
+                                <FontAwesomeIcon icon={faArrowAltCircleDown} id={`dl-icon-${this.props.id}`} onClick={this.forceDownload} class='--dwn --icon' />
+                                <span className='overlay-tooltip'>Click to Download</span>
+                            </div>
                         }
                     </div>
                 </div>

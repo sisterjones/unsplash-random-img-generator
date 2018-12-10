@@ -44,7 +44,7 @@ export const fetchPhotos = (keyword, limit) => {
         if (!filename) filename = url.split('\\').pop().split('/').pop();
         fetch(url, {
             headers: new Headers({
-                'Origin': origin
+                'Origin': location
             }),
             mode: 'cors'
         })

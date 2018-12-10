@@ -20,7 +20,6 @@ class Image extends React.Component {
         this.updateIcon = this.updateIcon.bind(this)
     }
 
-
     handleHoverStart() {
         this.setState({
             isHovered: true,

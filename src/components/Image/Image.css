@@ -35,9 +35,7 @@
 }
 
 .--download, .--sourcelink, .--check {
-    color: white;
-    border: 1px solid rgba(255,255,255,0);
-    border-radius: 100%;
+    color: rgba(0,0,0,.7);
     height: auto;
     width: 40px;
     display: flex;
@@ -46,10 +44,11 @@
 }
 
 .--download:hover, .--sourcelink:hover {
-    border: 1px solid white;
-    border-radius: 100%;
+    color: black;
     cursor: pointer;
 }
+
+
 
 .--icon {
     height: auto;
@@ -70,8 +69,7 @@
 }
 
 .--check:hover {
-    border: 1px solid rgba(255,255,255,0);
-    border-radius: 100%;
+    color: rgba(0,0,0,.7);
     cursor: auto;
 }
 

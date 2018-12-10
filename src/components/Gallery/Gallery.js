@@ -39,6 +39,8 @@ class Gallery extends React.Component {
                     imageSource={image.url} 
                     altTag='randomly generated from Unsplash.com'
                     id={image.id}
+                    downloadLink={image.downloadLink}
+                    key={`img-${image.id}`}
                 />
         ))
         return photoSet

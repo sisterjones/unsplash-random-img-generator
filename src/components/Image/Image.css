@@ -28,14 +28,68 @@
 }
 
 .hover-icon {
-    margin-top: 20px;
-    margin-right: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: auto;
+    width: 40px;
 }
 
-.--download {
-    color: red;
+.--download, .--sourcelink, .--check {
+    color: white;
+    border: 1px solid rgba(255,255,255,0);
+    border-radius: 100%;
+    height: auto;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.--sourcelink {
-    color: blue;
+.--download:hover, .--sourcelink:hover {
+    border: 1px solid white;
+    border-radius: 100%;
+    cursor: pointer;
 }
+
+.--icon {
+    height: auto;
+    width: 40px;
+    padding: 3px;
+}
+
+.--srcli {
+    padding: 6px;
+}
+
+.--check {
+    transition: .4s;
+    animation-name: download-check;
+    animation-duration: 2s;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+}
+
+.--check:hover {
+    border: 1px solid rgba(255,255,255,0);
+    border-radius: 100%;
+    cursor: auto;
+}
+
+/* @keyframes download-check {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+} */
+
+.rotate {
+    animation-name: download-rotate;
+    animation-duration: .8s;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+}
+
+@keyframes download-rotate {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg)}
+}
+

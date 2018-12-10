@@ -1,5 +1,8 @@
 import React from 'react'
 import './Image.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleDown, faLink, faCheck } from '@fortawesome/free-solid-svg-icons'
+import * as photoAPI from '../../util/api'
 
 class Image extends React.Component {
     constructor(props) {
@@ -7,9 +10,14 @@ class Image extends React.Component {
     
         this.state = {
             isHovered: false,
+            imageAnimation: false,
+            rotate: false,
         }
         this.handleHoverStart = this.handleHoverStart.bind(this)
         this.handleHoverEnd = this.handleHoverEnd.bind(this)
+        this.forceDownload = this.forceDownload.bind(this)
+        this.setRotateClass = this.setRotateClass.bind(this)
+        this.updateIcon = this.updateIcon.bind(this)
     }
 
 
@@ -25,17 +33,46 @@ class Image extends React.Component {
         })
     }
 
+    updateIcon() {
+        this.setState({
+            imageAnimation: true,
+        })
+    }
+
+    forceDownload() {
+        this.setState({
+            rotate: true,
+        })
+        setTimeout(this.updateIcon, 1200)
+        let url = this.props.downloadLink
+        let filename = `img-unsplash-${this.props.id}`
+        let location = window.location.origin
+        photoAPI.downloadResource(url, filename, location)
+        console.log(this.state.imageAnimation)
+    }
+
+    setRotateClass() {
+        let iconId = `dl-icon-${this.props.id}`
+        document.getElementById(iconId).classList.add('rotate')
+    }
+
 
     render() {
 
         const hoverContents = this.state.isHovered ? 
             <div className='hover-contents'>
-                <div className='hover-icon --download'>
-                    D
+                <div className='hover-icon'>
+                    <div className={this.state.imageAnimation ? '--check' : '--download'} onClick={this.state.imageAnimation ? null : this.setRotateClass} target='_blank' rel='noopener noreferrer' download>
+                        {this.state.imageAnimation ?
+                            <FontAwesomeIcon icon={faCheck} class='--check --icon' />
+                            :
+                            <FontAwesomeIcon icon={faArrowAltCircleDown} id={`dl-icon-${this.props.id}`} onClick={this.forceDownload} class='--dwn --icon' />
+                        }
+                    </div>
                 </div>
-                <div className='hover-icon --sourcelink'>
+                <div className='hover-icon'>
                     <a className='--sourcelink' href={this.props.imageSource} target='_blank' rel='noopener noreferrer'>
-                        Source
+                        <FontAwesomeIcon icon={faLink} class='--srcli --icon' />
                     </a>
                 </div>
             </div>

@@ -50,6 +50,7 @@ export default class Wrapper extends Component {
                 imageArray.push({
                     url: imageUrl,
                     id: image.id,
+                    downloadLink: image.urls.full,
                     isFrozen: false,    
                 })
                 console.log(imageUrl)
@@ -79,6 +80,7 @@ export default class Wrapper extends Component {
                 imageArray.push({
                     url: imageUrl,
                     id: image.id,
+                    downloadLink: image.urls.full,
                     isFrozen: false,
                 })
                 console.log(imageUrl)

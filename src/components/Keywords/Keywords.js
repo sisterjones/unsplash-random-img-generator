@@ -13,6 +13,7 @@ export default class Keywords extends Component {
         this.handleInputValueChange = this.handleInputValueChange.bind(this)
         this.handleAddKeyword = this.handleAddKeyword.bind(this)
         this.mapTags = this.mapTags.bind(this)
+        this.removeTag = this.removeTag.bind(this)
     }
 
     handleInputValueChange(e) {
@@ -39,10 +40,23 @@ export default class Keywords extends Component {
         }
     }
 
+    removeTag(e) {
+        let currentTags = this.state.tags
+        let removalIndex = currentTags.map(tag => {return tag.id}).indexOf(e.target.id)
+        currentTags.splice(removalIndex, 1)
+        this.setState({
+            tags: currentTags,
+        })
+    }
+
     mapTags() {
         let mappedTags = this.state.tags.map((tag, index) => (
             <div className='mapped-tag' key={`tag-at-index-${index}`}>
-                <Tag value={tag.value} tagId={tag.id} />
+                <Tag 
+                    value={tag.value} 
+                    tagId={tag.id} 
+                    removeTag={this.removeTag}   
+                    />
             </div>
         ))
         return mappedTags

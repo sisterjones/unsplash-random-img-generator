@@ -10,7 +10,7 @@ export default class Wrapper extends Component {
             photos: [],
             imgNum: 0,
             query: '',
-            limit: 12,
+            limit: 20,
             frozenCount: 0,
             isLoaded: false,
             photosLoaded: false,
@@ -59,7 +59,7 @@ export default class Wrapper extends Component {
             this.setState({
                 photos: imageArray,
                 imgNum: imageArray.length,
-                limit: 12,
+                limit: 20,
             })
         }).then(() => {
             this.updateHeight()

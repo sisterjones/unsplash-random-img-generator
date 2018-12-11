@@ -1,7 +1,7 @@
 import React from 'react'
 import './Image.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleDown, faLink, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faArrowCircleDown, faLink, faCheck } from '@fortawesome/free-solid-svg-icons'
 import * as photoAPI from '../../util/api'
 
 class Image extends React.Component {
@@ -65,17 +65,19 @@ class Image extends React.Component {
                         {this.state.imageAnimation ?
                             <FontAwesomeIcon icon={faCheck} class='--check --icon' />
                             :
-                            <div>
-                                <FontAwesomeIcon icon={faArrowAltCircleDown} id={`dl-icon-${this.props.id}`} onClick={this.forceDownload} class='--dwn --icon' />
+                            <div className='icon-wrap'>
+                                <FontAwesomeIcon icon={faArrowCircleDown} id={`dl-icon-${this.props.id}`} onClick={this.forceDownload} class='--dwn --icon' />
                                 <span className='overlay-tooltip'>Click to Download</span>
                             </div>
                         }
                     </div>
                 </div>
                 <div className='hover-icon'>
+                <div className='icon-wrap'>
                     <a className='--sourcelink' href={this.props.imageSource} target='_blank' rel='noopener noreferrer'>
                         <FontAwesomeIcon icon={faLink} class='--srcli --icon' />
                     </a>
+                    </div>
                 </div>
             </div>
             : null

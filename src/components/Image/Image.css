@@ -31,13 +31,13 @@
     margin-top: 10px;
     margin-right: 10px;
     height: auto;
-    width: 40px;
+    width: 12%;
 }
 
 .--download, .--sourcelink, .--check {
     color: rgba(0,0,0,.7);
     height: auto;
-    width: 40px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,8 +52,8 @@
 
 .--icon {
     height: auto;
-    width: 40px;
-    padding: 3px;
+    width: 100%;
+    /* padding: 3px; */
 }
 
 .--download .overlay-tooltip {
@@ -110,11 +110,20 @@
     animation-duration: .8s;
     animation-play-state: running;
     animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes download-rotate {
-    0% {transform: rotate(0deg);}
-    50% {transform: rotate(180deg);}
-    100% {transform: rotate(360deg)}
+    0% {transform: scale(1);}
+    25% {transform: scale(.85);}
+    50% {transform: scale(1);}
+    75% {transform: scale(1.15);}
+    100% {transform: scale(1)}
 }
+
+.icon-wrap {
+    width: 100%;
+    height: auto;
+}
+
 

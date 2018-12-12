@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Tag from './../Tag/Tag'
-import uuidv4 from 'uuid/v4'
+import './Keywords.css'
+
 
 export default class Keywords extends Component {
     constructor(props) {
         super(props)
         
         this.state = {
-            tags: [],
             inputValue: '',
         }
         this.handleInputValueChange = this.handleInputValueChange.bind(this)
@@ -24,39 +24,29 @@ export default class Keywords extends Component {
 
     handleAddKeyword(e) {
 
-        let newId = uuidv4()
-        let updateTags = this.state.tags
         let newTag = this.state.inputValue
 
         if (e.which === 13) {
-            updateTags.push({
-                value: newTag,
-                id: newId,
-            })
+            console.log('hi')
+            this.props.handleAddKeyword(e, newTag)
             this.setState({
-                tags: updateTags,
                 inputValue: '',
             })
         }
     }
 
     removeTag(e) {
-        let currentTags = this.state.tags
-        let removalIndex = currentTags.map(tag => {return tag.id}).indexOf(e.target.id)
-        currentTags.splice(removalIndex, 1)
-        this.setState({
-            tags: currentTags,
-        })
+        this.props.removeTag(e)
     }
 
     mapTags() {
-        let mappedTags = this.state.tags.map((tag, index) => (
+        let mappedTags = this.props.tags.map((tag, index) => (
             <div className='mapped-tag' key={`tag-at-index-${index}`}>
                 <Tag 
                     value={tag.value} 
                     tagId={tag.id} 
                     removeTag={this.removeTag}   
-                    />
+                />
             </div>
         ))
         return mappedTags

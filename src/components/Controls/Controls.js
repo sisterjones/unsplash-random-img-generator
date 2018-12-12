@@ -1,5 +1,6 @@
 import React from 'react'
 import Keywords from './../Keywords/Keywords'
+import './Controls.css'
 
 const Controls = (props) => {
 
@@ -19,6 +20,15 @@ const Controls = (props) => {
         props.updateHeight()
     }
 
+    const handleAddKeyword = (e, newTag) => {
+        console.log('hi')
+        props.handleAddKeyword(e, newTag)
+    }
+
+    const removeTag = (e) => {
+        props.removeTag(e)
+    }
+
         return (
             <div>
                 <div className='reset-button --reset-grid'>
@@ -28,7 +38,11 @@ const Controls = (props) => {
                     <button onClick={getImages}>Reset Search and Refresh</button>
                 </div>
                 <div className='search-fields'>
-                    <Keywords />
+                    <Keywords 
+                        handleAddKeyword={handleAddKeyword}
+                        tags={props.tags}
+                        removeTag={removeTag}
+                    />
                     <input value={props.query} onChange={updateSearchSettings} type='text' name='query' />
                     <input value={props.limit} onChange={updateSearchSettings} type='number' max='30' min='0' name='limit' />
                     <button onClick={submitSearch}>{props.limit} Random Images with Keyword {props.query}</button>

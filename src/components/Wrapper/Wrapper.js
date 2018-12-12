@@ -158,7 +158,7 @@ export default class Wrapper extends Component {
     
     render() {
         return (
-            <div>
+            <div class='body-content-wrapper'>
                 <Controls 
                     updateSearchSettings={this.updateSearchSettings}
                     getImagesWithQuery={this.getImagesWithQuery}

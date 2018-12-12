@@ -1,17 +1,10 @@
 .gallery-container {
-
+    width: 80vw;
 }
 
-/* 
 .image-gallery {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 95vw;
-    height: 120vw;
-    line-height: 0;
-    column-gap: 0;
-} */
+    max-width: 80vw;
+}
 
 .imageStyle {
     height: auto;

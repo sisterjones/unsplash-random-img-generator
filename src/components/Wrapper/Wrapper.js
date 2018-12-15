@@ -26,6 +26,8 @@ export default class Wrapper extends Component {
         this.updateSearchSettings = this.updateSearchSettings.bind(this)
         this.handleAddKeyword = this.handleAddKeyword.bind(this)
         this.removeTag = this.removeTag.bind(this)
+        this.decrementCounter = this.decrementCounter.bind(this)
+        this.incrementCounter = this.incrementCounter.bind(this)
     }
 
     componentDidMount() {
@@ -155,6 +157,22 @@ export default class Wrapper extends Component {
         })
     }
 
+    incrementCounter(e) {
+        let counterValue = this.state.limit 
+        counterValue += 1
+        this.setState({
+            limit: counterValue,
+        })
+    }
+
+    decrementCounter(e) {
+        let counterValue = this.state.limit 
+        counterValue -= 1
+        this.setState({
+            limit: counterValue,
+        })
+    }
+
     
     render() {
         return (
@@ -169,6 +187,8 @@ export default class Wrapper extends Component {
                     handleAddKeyword={this.handleAddKeyword}
                     tags={this.state.tags}
                     removeTag={this.removeTag}
+                    decrementCounter={this.decrementCounter}
+                    incrementCounter={this.incrementCounter}
                 />
                 <Gallery 
                     photos={this.state.photos}

@@ -1,12 +1,15 @@
-.gallery-container {
+.gallery {
     width: 80vw;
 }
 
-.image-gallery {
+.gallery__wrapping-column {
     max-width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-.imageStyle {
+.gallery__image {
     height: auto;
     width: 33%;
     margin: 0;
@@ -15,21 +18,4 @@
     object-fit: cover;
 }
 
-.frozenImageStyle {
-    border: 3px solid blue;
-    margin: -3px;
-    width: 23vw;
-    height: auto;
-}
 
-.unfrozenStyle {
-    height: auto;
-    width: 100%;
-    position: relative;
-    list-style: none;
-}
-
-.unfrozenStyle img {
-    height: auto;
-    width: 100%;
-}

@@ -5,16 +5,16 @@
     position: relative;
 }
 
-.indiv-image {
+.image-container__image-wrapper {
 
 }
 
-.mapped-image {
+.image-container__image {
     height: auto;
     width: 100%;
 }
 
-.hover-contents {
+.hover-content {
     position: absolute;
     top: 0;
     left: 0;
@@ -27,14 +27,14 @@
     align-items: flex-start;
 }
 
-.hover-icon {
+.hover-content__icon-wrapper {
     margin-top: 10px;
     margin-right: 10px;
     height: auto;
     width: 12%;
 }
 
-.--download, .--sourcelink, .--check {
+.hover-content__icon {
     color: rgba(0,0,0,.7);
     height: auto;
     width: 100%;
@@ -43,51 +43,7 @@
     align-items: center;
 }
 
-.--download:hover, .--sourcelink:hover {
-    color: black;
-    cursor: pointer;
-}
-
-
-
-.--icon {
-    height: auto;
-    width: 100%;
-    /* padding: 3px; */
-}
-
-.--download .overlay-tooltip {
-    visibility: hidden;
-    width: 120px;
-    height: auto;
-    background-color: rgba(0,0,0,.8);
-    color: white;
-    text-align: center;
-    font-size: 12px;
-    padding: 10px 0;
-    border-radius: 6px;
-
-    position: absolute;
-    top: 60px;
-    left: 100%;
-    margin-left: -142px;
-    z-index: 1;
-    opacity: 0;
-}
-
-.--download:hover .overlay-tooltip {
-    transition-delay: .7s;
-    transition-duration: .4s;
-    visibility: visible;
-    opacity: 1;
-    cursor: auto;
-}
-
-.--srcli {
-    padding: 6px;
-}
-
-.--check {
+.hover-content__icon--check {
     transition: .4s;
     animation-name: download-check;
     animation-duration: 2s;
@@ -95,17 +51,11 @@
     animation-iteration-count: 1;
 }
 
-.--check:hover {
-    color: rgba(0,0,0,.7);
-    cursor: auto;
+.hover-content__icon--download {
+
 }
 
-/* @keyframes download-check {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
-} */
-
-.rotate {
+.hover-content__icon--rotate {
     animation-name: download-rotate;
     animation-duration: .8s;
     animation-play-state: running;
@@ -113,15 +63,25 @@
     animation-timing-function: ease;
 }
 
+.hover-content__icon--hover:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.hover-content__icon--source {
+    padding: 6px;
+}
+
+.hover-content__icon-link {
+
+}
+
+.hover-content__icon-link--source {
+
+}
+
 @keyframes download-rotate {
     0% {transform: rotate(0deg);}
     50% {transform: rotate(180deg);}
     100% {transform: rotate(360deg);}
 }
-
-.icon-wrap {
-    width: 100%;
-    height: auto;
-}
-
-

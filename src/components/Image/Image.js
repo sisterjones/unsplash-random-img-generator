@@ -52,35 +52,28 @@ class Image extends React.Component {
 
     setRotateClass() {
         let iconId = `dl-icon-${this.props.id}`
-        document.getElementById(iconId).classList.add('rotate')
+        document.getElementById(iconId).classList.add('hover-content__icon--rotate')
     }
 
 
     render() {
 
         const hoverContents = this.state.isHovered ? 
-            <div className='hover-contents'>
-                <div className='hover-icon'>
-                    <div className={this.state.imageAnimation ? '--check' : '--download'} onClick={this.state.imageAnimation ? null : this.setRotateClass} target='_blank' rel='noopener noreferrer' download>
-                        {this.state.imageAnimation ?
-                            <FontAwesomeIcon icon={faCheck} class='--check --icon' />
-                            :
-                            <div className='icon-wrap'>
-                                <FontAwesomeIcon icon={faArrowCircleDown} id={`dl-icon-${this.props.id}`} onClick={this.forceDownload} class='--dwn --icon' />
-                                <span className='overlay-tooltip'>Click to Download</span>
-                            </div>
-                        }
-                    </div>
+            <div className='hover-content'>
+                <div className='hover-content__icon-wrapper' onClick={this.state.imageAnimation ? null : this.setRotateClass} target='_blank' rel='noopener noreferrer' download>
+                    {this.state.imageAnimation ?
+                        <FontAwesomeIcon icon={faCheck} class='hover-content__icon hover-content__icon--check' />
+                        :
+                        <FontAwesomeIcon icon={faArrowCircleDown} id={`dl-icon-${this.props.id}`} onClick={this.forceDownload} class='hover-content__icon hover-content__icon--download hover-content__icon--hover' />
+                    }
                 </div>
-                <div className='hover-icon'>
-                <div className='icon-wrap'>
-                    <a className='--sourcelink' href={this.props.imageSource} target='_blank' rel='noopener noreferrer'>
-                        <FontAwesomeIcon icon={faLink} class='--srcli --icon' />
+                <div className='hover-content__icon-wrapper'>
+                    <a className='hover-content__icon-link hover-content__icon-link--source' href={this.props.imageSource} target='_blank' rel='noopener noreferrer'>
+                        <FontAwesomeIcon icon={faLink} class='hover-content__icon hover-content__icon--source hover-content__icon--hover' />
                     </a>
-                    </div>
                 </div>
             </div>
-            : null
+        : null
 
 
         return (
@@ -89,12 +82,12 @@ class Image extends React.Component {
                 onMouseEnter={this.handleHoverStart}
                 onMouseLeave={this.handleHoverEnd}
             >
-                <div className='indiv-image'>
+                <div className='image-container__image-wrapper'>
                     <img 
                         src={this.props.imageSource} 
                         alt={this.props.altTag}
                         id={this.props.id}
-                        className='mapped-image'
+                        className='image-container__image'
                     />
                 </div>
                 {hoverContents}

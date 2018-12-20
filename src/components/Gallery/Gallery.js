@@ -51,19 +51,13 @@ class Gallery extends React.Component {
 
     render() {
 
-        let galleryStyle = {
-            display: 'flex',
-            flexWrap: 'wrap',
-            flexDirection: 'column',
-            width: '100vw',
+        let columnHeight = {
             height: this.props.imagesHeight / 2.6,
-            lineHeight: '0',
-            columnGap: '0',
         }
 
         return (
-            <div className='gallery-container'>
-                <div id='gallery' style={galleryStyle} className='image-gallery'>
+            <div className='gallery'>
+                <div id='gallery' style={columnHeight} className='gallery__wrapping-column'>
                     {this.mapImages()}
                 </div>
                 

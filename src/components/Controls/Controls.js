@@ -1,6 +1,8 @@
 import React from 'react'
 import Keywords from './../Keywords/Keywords'
 import './Controls.css'
+import Counter from './../Counter/Counter'
+import Button from './../Button/Button'
 
 const Controls = (props) => {
 
@@ -29,32 +31,56 @@ const Controls = (props) => {
         props.removeTag(e)
     }
 
-        return (
-            <div className='controls-container'>
-                
-                <div className='search-fields'>
-                    <Keywords 
-                        handleAddKeyword={handleAddKeyword}
-                        tags={props.tags}
-                        removeTag={removeTag}
-                    />
-                    </div>
-                    <div>
-            
-                    <input value={props.limit} onChange={updateSearchSettings} type='number' max='30' min='0' name='limit' />
-                    </div>
-                    <div>
-                    <button onClick={submitSearch}>Generate</button>
-                    </div>
-                    <div className='reset-button --reset-grid'>
-                    <button onClick={updateHeight}>Reset Grid</button>
-                </div>
-                <div className='reset-button --reset-results'>
-                    <button onClick={getImages}>Reset Search and Refresh</button>
-                </div>
-            </div>
-        )
+    const decrementCounter = (e) => {
+        props.decrementCounter(e)
     }
+
+    const incrementCounter = (e) => {
+        props.incrementCounter(e)
+    }
+
+
+    return (
+        <div className='controls-container'>
+            <div className='search-fields'>
+                <Keywords 
+                    handleAddKeyword={handleAddKeyword}
+                    tags={props.tags}
+                    removeTag={removeTag}
+                />
+            </div>
+            <div>
+                <Counter 
+                    decrementCounter={decrementCounter}
+                    incrementCounter={incrementCounter}
+                    handleCounterChange={updateSearchSettings}
+                    counterValue={props.limit}
+                />
+            </div>
+            <div>
+                <Button
+                    buttonClass='generate-image-button'
+                    handleButtonClick={submitSearch}
+                    buttonText='Generate'
+                />
+            </div>
+            <div className='reset-button --reset-grid'>
+                <Button
+                    buttonClass='reset-grid-button'
+                    handleButtonClick={updateHeight}
+                    buttonText='Reset Grid'
+                />
+            </div>
+            <div className='reset-button --reset-results'>
+                <Button
+                    buttonClass='generate-image-button'
+                    handleButtonClick={getImages}
+                    buttonText='Reset Search'
+                />
+            </div>
+        </div>
+    )
+}
 
 
 export default Controls

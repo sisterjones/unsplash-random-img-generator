@@ -1,9 +1,19 @@
 import React from 'react'
 
 const Button = (props) => {
-	return (
-		<div>
 
+	const handleButtonClick = (e) => {
+		props.handleButtonClick(e)
+	}
+
+	return (
+		<div className='button-wrapper'>
+			<button 
+				className={props.buttonClass}
+				onClick={handleButtonClick}
+			>
+				{props.buttonText}
+			</button>
 		</div>
 	)
 }

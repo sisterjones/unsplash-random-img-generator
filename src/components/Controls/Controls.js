@@ -53,20 +53,14 @@ const Controls = (props) => {
                 counterValue={props.limit}
             />
             <Button
-                buttonModifier='generate-image'
+                buttonModifier='generate-images'
                 handleButtonClick={submitSearch}
                 buttonText='Generate'
             />
-            <Button
-                buttonModifier='reset-grid'
-                handleButtonClick={updateHeight}
-                buttonText='Reset Grid'
-            />
-            <Button
-                buttonModifier='reset-search'
-                handleButtonClick={getImages}
-                buttonText='Reset Search'
-            />
+            <div className='controls__reset-controls'>
+                <div onClick={updateHeight}>Reset Grid</div>
+                <div onClick={getImages}>Reset Search</div>
+            </div>
         </div>
     )
 }

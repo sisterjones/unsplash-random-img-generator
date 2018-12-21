@@ -1,8 +1,27 @@
 .controls {
     width: 80vw;
-    height: 20vh;
+    height: 22vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.controls__reset-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 20vh;
+    margin: 0 0 0 20px;
+    font-family: helvetica, sans-serif;
+    color: #1a1a1a;
+    text-decoration: underline;
+    font-size: 14px;
+    height: 5vh;
+    font-style: italic;
+}
+
+.controls__reset-controls:hover {
+    cursor: pointer;
 }

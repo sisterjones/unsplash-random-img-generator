@@ -7,14 +7,12 @@ const Button = (props) => {
 	}
 
 	return (
-		<div className='button-wrapper'>
 			<button 
-				className={props.buttonClass}
+				className={`button button--${props.buttonModifier}`}
 				onClick={handleButtonClick}
 			>
 				{props.buttonText}
 			</button>
-		</div>
 	)
 }
 

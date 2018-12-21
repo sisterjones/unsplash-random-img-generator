@@ -1,4 +1,4 @@
-.body-content-wrapper {
+.body-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

@@ -4,8 +4,8 @@ import logo from './../../Assets/Images/Logo.svg'
 
 const Logo = (props) => {
     return (
-        <div className='logo-container'>
-            <img src={logo} alt='RIG logo' />
+        <div className='logo'>
+            <img className='logo__image' src={logo} alt='RIG logo' />
         </div>
     )
 }

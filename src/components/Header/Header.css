@@ -1,4 +1,4 @@
-.header-container {
+.header {
     height: 60px;
     width: 100vw;
     margin: 0;
@@ -10,7 +10,7 @@
     box-shadow: 0px 2px 2px 0px rgba(0,0,0,.1);
 }
 
-.header-inner {
+.header__header-inner {
     height: 100%;
     width: 80vw;
     display: flex;
@@ -18,27 +18,9 @@
     align-items: center;
 }
 
-.header-title {
+.header__header-title {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: .15rem;
-}
-
-.--large {
-    font-size: 1.5rem;
-}
-
-.--small {
-    font-size: .8rem;
-    transition: .1s ease;
-    border-bottom: 1px solid transparent;
-    transform: translateY(1px);
-}
-
-.--small:hover {
-    cursor: pointer;
-    border-bottom: 1px solid black;
-    transition: .1s ease;
-    transform: translateY(1px);
 }

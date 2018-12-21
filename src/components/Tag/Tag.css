@@ -1,24 +1,21 @@
-.--tag {
-    background: navy;
-    color: white;
-}
-
-.tag-container {
+.tag {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background: navy;
+    color: white;
 }
 
-.tag-text {
+.tag__tag-text {
     text-transform: uppercase;
 }
 
-.tag-x {
+.tag__tag-x {
     font-weight: bold;
     margin: 0 5px 0 10px;
 }
 
-.tag-x:hover {
+.tag__tag-x:hover {
     cursor: pointer;
 }

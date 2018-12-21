@@ -5,20 +5,14 @@ import Logo from './../Logo/Logo'
 export default class Header extends Component {
     render() {
         return (
-            <div className='header-container'>
-                <div className ='header-inner'>
+            <header className='header'>
+                <div className='header__header-inner'>
                     <Logo />
-                    <h1 className='header-title --large'>
+                    <h1 className='header__header-title'>
                         Random Image Generator
                     </h1>
-                    <p 
-                        className='header-title --small'
-                        onClick={null}
-                    >
-                        About
-                    </p>
                 </div>
-            </div>
+            </header>
         )
     }
 }

@@ -8,9 +8,9 @@ const Tag = (props) => {
     }
 
     return (
-        <span className='--tag tag-container'>
-            <span><p className='--tag tag-text'>{props.value}</p></span>
-            <span className='--tag tag-x' id={props.tagId} onClick={removeTag}>x</span>
+        <span className='tag'>
+            <span><p className='tag__tag-text'>{props.value}</p></span>
+            <span className='tag__tag-x' id={props.tagId} onClick={removeTag}>x</span>
         </span>
     )
 }

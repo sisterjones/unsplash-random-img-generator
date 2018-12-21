@@ -18,13 +18,13 @@ const Counter = (props) => {
     }
 
     return (
-        <div className='counter-wrapper'>
+        <div className='counter'>
             <CounterButton 
                 plusMinus="-" 
                 decrementCounter={decrementCounter}
             />
-            <div className='counter-input-container'>
-                <input value={props.counterValue} type='number' onChange={handleCounterChange} max='30' min='0' name='limit'/>
+            <div className='counter__input-container'>
+                <input className='counter__counter-input' value={props.counterValue} type='number' onChange={handleCounterChange} max='30' min='0' name='limit'/>
             </div>
             <CounterButton 
                 plusMinus="+" 

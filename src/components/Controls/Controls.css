@@ -1,16 +1,8 @@
-.controls-container {
+.controls {
     width: 80vw;
     height: 20vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.reset-button {
-
-}
-
-.search-fields {
-
 }

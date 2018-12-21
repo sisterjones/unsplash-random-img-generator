@@ -23,7 +23,6 @@ const Controls = (props) => {
     }
 
     const handleAddKeyword = (e, newTag) => {
-        console.log('hi')
         props.handleAddKeyword(e, newTag)
     }
 
@@ -41,43 +40,33 @@ const Controls = (props) => {
 
 
     return (
-        <div className='controls-container'>
-            <div className='search-fields'>
-                <Keywords 
-                    handleAddKeyword={handleAddKeyword}
-                    tags={props.tags}
-                    removeTag={removeTag}
-                />
-            </div>
-            <div>
-                <Counter 
-                    decrementCounter={decrementCounter}
-                    incrementCounter={incrementCounter}
-                    handleCounterChange={updateSearchSettings}
-                    counterValue={props.limit}
-                />
-            </div>
-            <div>
-                <Button
-                    buttonClass='generate-image-button'
-                    handleButtonClick={submitSearch}
-                    buttonText='Generate'
-                />
-            </div>
-            <div className='reset-button --reset-grid'>
-                <Button
-                    buttonClass='reset-grid-button'
-                    handleButtonClick={updateHeight}
-                    buttonText='Reset Grid'
-                />
-            </div>
-            <div className='reset-button --reset-results'>
-                <Button
-                    buttonClass='generate-image-button'
-                    handleButtonClick={getImages}
-                    buttonText='Reset Search'
-                />
-            </div>
+        <div className='controls'>
+            <Keywords 
+                handleAddKeyword={handleAddKeyword}
+                tags={props.tags}
+                removeTag={removeTag}
+            />
+            <Counter 
+                decrementCounter={decrementCounter}
+                incrementCounter={incrementCounter}
+                handleCounterChange={updateSearchSettings}
+                counterValue={props.limit}
+            />
+            <Button
+                buttonModifier='generate-image'
+                handleButtonClick={submitSearch}
+                buttonText='Generate'
+            />
+            <Button
+                buttonModifier='reset-grid'
+                handleButtonClick={updateHeight}
+                buttonText='Reset Grid'
+            />
+            <Button
+                buttonModifier='reset-search'
+                handleButtonClick={getImages}
+                buttonText='Reset Search'
+            />
         </div>
     )
 }

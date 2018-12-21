@@ -41,7 +41,7 @@ export default class Keywords extends Component {
 
     mapTags() {
         let mappedTags = this.props.tags.map((tag, index) => (
-            <div className='mapped-tag' key={`tag-at-index-${index}`}>
+            <div className='query-params__tag-wrapper' key={`tag-at-index-${index}`}>
                 <Tag 
                     value={tag.value} 
                     tagId={tag.id} 
@@ -54,16 +54,14 @@ export default class Keywords extends Component {
     
     render() {
         return (
-            <div className='keyword-container'>
-            <label for='keyword-input'>Keywords </label>
-            <div className='input-and-tag'>
-                <div className='input-container --input'>
-                    <input className='--input' value={this.state.inputValue} onChange={this.handleInputValueChange} onKeyDown={this.handleAddKeyword} type='text' name='keyword-input' />
-                </div>
-                <div className='tag-wrapper'>
-                    {this.mapTags()}
-                </div>
-                </div>
+            <div className='query-params'>
+                    <div className='query-params__input-wrapper'>
+                        <label for='keyword-input'>Keywords</label>
+                        <input className='query-params__input' value={this.state.inputValue} onChange={this.handleInputValueChange} onKeyDown={this.handleAddKeyword} type='text' name='keyword-input' />
+                    </div>
+                    <div className='query-params__keywords'>
+                        {this.mapTags()}
+                    </div>
             </div>
         )
     }

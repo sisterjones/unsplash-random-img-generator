@@ -18,7 +18,7 @@ const CounterButton = props => {
     }
 
     return (
-        <div onClick={handleCounterButtonClick} className='counter-button-wrapper'>
+        <div onClick={handleCounterButtonClick} className='counter-button'>
             {props.plusMinus}
         </div>
     )

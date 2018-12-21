@@ -26,8 +26,8 @@ const Controls = (props) => {
         props.handleAddKeyword(e, newTag)
     }
 
-    const removeTag = (e) => {
-        props.removeTag(e)
+    const removeTag = (tagId) => {
+        props.removeTag(tagId)
     }
 
     const decrementCounter = (e) => {

@@ -35,8 +35,8 @@ export default class Keywords extends Component {
         }
     }
 
-    removeTag(e) {
-        this.props.removeTag(e)
+    removeTag(tagId) {
+        this.props.removeTag(tagId)
     }
 
     mapTags() {
@@ -55,8 +55,8 @@ export default class Keywords extends Component {
     render() {
         return (
             <div className='query-params'>
+            <label className='query-params__label' htmlFor='keyword-input'>Keywords:</label>
                     <div className='query-params__input-wrapper'>
-                        <label for='keyword-input'>Keywords</label>
                         <input className='query-params__input' value={this.state.inputValue} onChange={this.handleInputValueChange} onKeyDown={this.handleAddKeyword} type='text' name='keyword-input' />
                     </div>
                     <div className='query-params__keywords'>

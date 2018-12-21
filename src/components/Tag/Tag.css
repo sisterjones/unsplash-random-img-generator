@@ -3,19 +3,25 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: navy;
+    background: #3e60d1;
+    border-radius: 4px;
+    height: 30px;
+    margin-right: 5px;
+    font-size: 14px;
     color: white;
 }
 
 .tag__tag-text {
     text-transform: uppercase;
+    padding: 0px 10px;
+    margin: 0;
 }
 
 .tag__tag-x {
     font-weight: bold;
-    margin: 0 5px 0 10px;
+    margin: 0 10px 0 0px;
 }
 
-.tag__tag-x:hover {
+.tag--handle-hover:hover {
     cursor: pointer;
 }

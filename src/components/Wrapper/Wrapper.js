@@ -148,9 +148,10 @@ export default class Wrapper extends Component {
         })
     }
 
-    removeTag(e) {
+    removeTag(tagId) {
+        console.log(tagId)
         let newTags = this.state.tags
-        let removalIndex = newTags.map(tag => {return tag.id}).indexOf(e.target.id)
+        let removalIndex = newTags.map(tag => {return tag.id}).indexOf(tagId)
         newTags.splice(removalIndex, 1)
         this.setState({
             tags: newTags,

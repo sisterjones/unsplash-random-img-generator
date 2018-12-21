@@ -3,14 +3,15 @@ import './Tag.css'
 
 const Tag = (props) => {
 
-    const removeTag = (e) => {
-        props.removeTag(e)
+    const removeTag = () => {
+        let tagId = props.tagId
+        props.removeTag(tagId)
     }
 
     return (
-        <span className='tag'>
-            <span><p className='tag__tag-text'>{props.value}</p></span>
-            <span className='tag__tag-x' id={props.tagId} onClick={removeTag}>x</span>
+        <span className='tag tag--handle-hover' onClick={removeTag}>
+            <p className='tag__tag-text tag--handle-hover'>{props.value}</p>
+            <span className='tag__tag-x tag--handle-hover'>x</span>
         </span>
     )
 }

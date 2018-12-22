@@ -1,14 +1,14 @@
 .button {
-   height: 5vh;
-   border: none;
-   width: 30vh;
-   font-family: helvetica, sans-serif;
-   font-size: 16px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-   margin: 0px 50px;
+    height: 5vh;
+    border: none;
+    width: 30vh;
+    font-family: helvetica, sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0px 50px;
 }
 
 .button--generate-images {

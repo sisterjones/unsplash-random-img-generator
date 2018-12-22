@@ -8,12 +8,13 @@ const Button = (props) => {
 	}
 
 	return (
-			<button 
-				className={`button button--${props.buttonModifier}`}
-				onClick={handleButtonClick}
-			>
-				{props.buttonText}
-			</button>
+		// button class modifier thru props
+		<button 
+			className={`button button--${props.buttonModifier}`}
+			onClick={handleButtonClick}
+		>
+			{props.buttonText}
+		</button>
 	)
 }
 

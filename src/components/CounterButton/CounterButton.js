@@ -4,6 +4,7 @@ import './CounterButton.css'
 
 const CounterButton = props => {
 
+    // sets onClick value of the button depending on the displayed content (i.e '+' or '-')
     const handleCounterButtonClick = (e) => {
         switch(props.plusMinus) {
             case '+':

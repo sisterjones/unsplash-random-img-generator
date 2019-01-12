@@ -1,7 +1,6 @@
 .image-container {
     width: 33%;
-    margin: 0;
-    border: 3px solid white;
+    margin: 3px 4px;
     position: relative;
 }
 

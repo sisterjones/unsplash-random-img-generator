@@ -40,8 +40,9 @@
     width: 10%;
     letter-spacing: 4px;
     /* margin-left: 22vw; */
-    margin: none; 
-    padding: none;
+    margin: 0; 
+    padding: 0;
+    text-align: right;
 }
 
 .header__settings-button:hover {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Footer.css'
 
 const Footer = (props) =>  {
 
@@ -6,12 +7,19 @@ const Footer = (props) =>  {
     //     props.updateHeight()
     // }
 
+    const toTop = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    }
+
         return (
-            <div>
-                {/* <div className='reset-grid'>
-                    <button onClick={updateHeight}>Reset Grid</button>
-                </div> */}
-            </div>
+            <footer className='footer'>
+                I am the footer
+                <a onClick={toTop}>Back to Top</a>
+            </footer>
         )
 }
 

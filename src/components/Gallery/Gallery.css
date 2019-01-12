@@ -13,7 +13,7 @@
     height: auto;
     width: 33%;
     margin: 0;
-    border: 3px solid white;
+    border: 3px solid transparent;
     line-height: 0;
     object-fit: cover;
 }

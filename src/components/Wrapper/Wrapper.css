@@ -6,4 +6,5 @@
     width: 100vw;
     overflow-wrap: break-word;
     overflow: hidden;
+    background: linear-gradient(315deg, white 0%, white 33%, white 66%, white, 90%, rgb(250, 249, 249) 100%);
 }

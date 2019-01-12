@@ -1,9 +1,10 @@
 .controls {
     width: 80vw;
-    height: 22vh;
+    height: 30vh;
+    margin-top: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 

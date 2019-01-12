@@ -1,18 +1,48 @@
 .button {
-    height: 5vh;
+height: 60px;
     border: none;
-    width: 30vh;
+    width: 50vh;
     font-family: helvetica, sans-serif;
-    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: 0px 50px;
+    outline: none;
 }
 
 .button--generate-images {
-    background: #13315c;
     color: white;
+    border-radius: 4px;
+    transition: .2s;
+    background-image: linear-gradient(90deg, rgb(0, 9, 88) -100%, rgb(0, 9, 88) 10%,rgb(53, 157, 255) 50%, rgb(53, 157, 255) 90%, rgb(53, 157, 255) 140%,  rgb(53, 157, 255) 200%, rgb(0, 9, 88) 250%);
+    background-size: 100vw;
+    margin-bottom: 10vh;
+}   
 
-}
+.button--generate-images:hover {
+    color: white;
+    transition: .4s;
+    /* animation-duration: 5s;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-direction: forwards;
+    animation-timing-function: ease-in-out;
+    animation-name: gradient-forward; */
+    background-position: -60vw;
+    /* box-shadow: -2px 2px 1px 1px rgba(0,0,0,0.4); */
+    cursor: pointer;
+    /* background: linear-gradient(90deg, rgb(0, 9, 88) -10%,rgb(53, 157, 255) 30%, rgb(53, 157, 255) 70%, rgb(0, 9, 88) 120%); */
+} 
+
+/* @keyframes gradient-forward {
+    0% { background-position-x: initial;}
+    25% { background-position-x: -40vw}
+    50% { background-position-x: -80vw}
+    75% { background-position-x: -40vw}
+    100% { background-position-x: initial;}
+} */

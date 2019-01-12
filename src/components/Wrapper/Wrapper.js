@@ -31,9 +31,6 @@ export default class Wrapper extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            isLoaded: true,
-        })
         this.getImages()
     }
 
@@ -44,6 +41,9 @@ export default class Wrapper extends Component {
     }
 
     getImages() {
+        this.setState({
+            isLoaded: false
+        })
         let imageArray = []
         this.state.photos.forEach(image => {
             return image.isFrozen ?
@@ -71,10 +71,17 @@ export default class Wrapper extends Component {
             })
         }).then(() => {
             this.updateHeight()
+        }).then(() => {
+            this.setState({
+                isLoaded: true
+            })
         })
     }
 
     getImagesWithQuery() {
+        this.setState({
+            isLoaded: false
+        })
         let imageArray = []
         this.state.photos.forEach(image => {
             return image.isFrozen ?
@@ -89,6 +96,7 @@ export default class Wrapper extends Component {
             query: newQuery,
         })
         let trueCount = this.state.limit - imageArray.length || this.state.limit
+        if (trueCount <= 30) {
         photoAPI.fetchPhotos(newQuery, trueCount).then((result) => {
             result.forEach(image => {
                 let imageUrl = image.urls.regular
@@ -107,7 +115,128 @@ export default class Wrapper extends Component {
             })
         }).then(() => {
             this.updateHeight()
+        }).then(() => {
+            this.setState({
+                isLoaded: true
+            })
         })
+    }
+    if (trueCount <= 30) {
+        photoAPI.fetchPhotos(newQuery, trueCount).then((result) => {
+            result.forEach(image => {
+                let imageUrl = image.urls.regular
+                imageArray.push({
+                    url: imageUrl,
+                    id: image.id,
+                    downloadLink: image.urls.full,
+                    isFrozen: false,
+                })
+                console.log(imageUrl)
+            })
+        }).then(() => {
+            this.setState({
+                photos: imageArray,
+                imgNum: imageArray.length,
+            })
+        }).then(() => {
+            this.updateHeight()
+        }).then(() => {
+            this.setState({
+                isLoaded: true
+            })
+        })
+    }
+    if (trueCount > 30 && trueCount <= 60) {
+        photoAPI.fetchPhotos(newQuery, trueCount).then((result) => {
+            result.forEach(image => {
+                let imageUrl = image.urls.regular
+                imageArray.push({
+                    url: imageUrl,
+                    id: image.id,
+                    downloadLink: image.urls.full,
+                    isFrozen: false,
+                })
+                console.log(imageUrl)
+            })
+        }).then(() => {
+            photoAPI.fetchPhotos(newQuery, trueCount).then((result) => {
+                result.forEach(image => {
+                    let imageUrl = image.urls.regular
+                    imageArray.push({
+                        url: imageUrl,
+                        id: image.id,
+                        downloadLink: image.urls.full,
+                        isFrozen: false,
+                    })
+                    console.log(imageUrl)
+                })
+            }).then(() => {
+            this.setState({
+                photos: imageArray,
+                imgNum: imageArray.length,
+            })
+        }).then(() => {
+            this.updateHeight()
+        }).then(() => {
+            this.setState({
+                isLoaded: true
+            })
+        })
+    }
+    
+        )}
+        if (trueCount > 60 && trueCount <= 90) {
+            let countOneTwo = 30
+            let countThree = trueCount - 60
+            photoAPI.fetchPhotos(newQuery, countOneTwo).then((result) => {
+                result.forEach(image => {
+                    let imageUrl = image.urls.regular
+                    imageArray.push({
+                        url: imageUrl,
+                        id: image.id,
+                        downloadLink: image.urls.full,
+                        isFrozen: false,
+                    })
+                    console.log(imageUrl)
+                })
+            }).then(() => {
+                photoAPI.fetchPhotos(newQuery, countOneTwo).then((result) => {
+                    result.forEach(image => {
+                        let imageUrl = image.urls.regular
+                        imageArray.push({
+                            url: imageUrl,
+                            id: image.id,
+                            downloadLink: image.urls.full,
+                            isFrozen: false,
+                        })
+                        console.log(imageUrl)
+                    })
+                }).then(() => {
+                    photoAPI.fetchPhotos(newQuery, countThree).then((result) => {
+                        result.forEach(image => {
+                            let imageUrl = image.urls.regular
+                            imageArray.push({
+                                url: imageUrl,
+                                id: image.id,
+                                downloadLink: image.urls.full,
+                                isFrozen: false,
+                            })
+                            console.log(imageUrl)
+                        })
+                    }).then(() => {
+                this.setState({
+                    photos: imageArray,
+                    imgNum: imageArray.length,
+                })
+            }).then(() => {
+                this.updateHeight()
+            }).then(() => {
+                this.setState({
+                    isLoaded: true
+                })
+            })
+        }
+            )})}
     }
 
     newHeight() {
@@ -178,6 +307,9 @@ export default class Wrapper extends Component {
     render() {
         return (
             <div class='body-wrapper'>
+                <div>
+                {!this.state.isLoaded && <p style={{color: 'black', fontSize:'80px'}}>butthole thank you butthole nice</p>}
+                    </div>
                 <Controls 
                     updateSearchSettings={this.updateSearchSettings}
                     getImagesWithQuery={this.getImagesWithQuery}

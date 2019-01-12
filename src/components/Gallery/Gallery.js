@@ -52,7 +52,7 @@ class Gallery extends React.Component {
     render() {
 
         let columnHeight = {
-            height: this.props.imagesHeight / 2.6,
+            height: this.props.imagesHeight / 2.7,
         }
 
         return (

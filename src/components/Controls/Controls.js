@@ -55,19 +55,19 @@ const Controls = (props) => {
         <div className='controls'>
 
             {/* 'tags' and input for said tags */}
-            <Keywords 
+            {/* <Keywords 
                 handleAddKeyword={handleAddKeyword}
                 tags={props.tags}
                 removeTag={removeTag}
-            />
+            /> */}
 
             {/* image quantity and +/- buttons */}
-            <Counter 
+            {/* <Counter 
                 decrementCounter={decrementCounter}
                 incrementCounter={incrementCounter}
                 handleCounterChange={updateSearchSettings}
                 counterValue={props.limit}
-            />
+            /> */}
 
             {/* generates dynamic quantity and type of images based on parent state */}
             <Button
@@ -75,12 +75,12 @@ const Controls = (props) => {
                 handleButtonClick={submitSearch}
                 buttonText='Generate'
             />
-            <div className='controls__reset-controls'>
+            {/* <div className='controls__reset-controls'> */}
                 {/* resets height calculation to resize grid if not done automatically */}
-                <div onClick={updateHeight}>Reset Grid</div>
-                {/* resets search params to defaults and loads 20 random images */}
-                <div onClick={getImages}>Reset Search</div>
-            </div>
+                {/* <div onClick={updateHeight}>Reset Grid</div> */}
+                {/* resets search params to defaults and loads 20 random images
+                <div onClick={getImages}>Reset Search</div> */}
+            {/* </div> */}
         </div>
     )
 }

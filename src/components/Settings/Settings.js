@@ -1,17 +1,47 @@
 import React, { Component } from 'react'
 import './Settings.css'
+// import { Slider, Switch } from 'antd'
+import { 
+    Slider,
+    Switch
+ } from 'antd';  
+import 'antd/lib/slider/style/css'; 
+import 'antd/lib/switch/style/css'; 
 
 export default class Settings extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            isToggled: false,
+        }
         this.closeModal = this.closeModal.bind(this)
+        this.handleUiToggle = this.handleUiToggle.bind(this)
     }
     
     closeModal(e) {
         this.props.closeModal(e)
     }
+
+    handleUiToggle() {
+        this.setState({
+            isToggled: !this.state.isToggled
+        })
+    }
     
     render() {
+        const steps={
+            1: '0',
+            10: '10',
+            20: '20',
+            30: '30',
+            40: '40',
+            50: '50',
+            60: '60',
+            70: '70',
+            80: '80',
+            90: '90',
+            100: '100'
+        }
         return (
             <div className='settings'>
                 <div className='settings__container'>
@@ -21,7 +51,11 @@ export default class Settings extends Component {
                             <span className='options__option-label options__option-label--main'>Image Count</span>
                             <label className='options__option-label options__option-label--note'>1</label>
                             <span className='options__image-count-slider'>
-                                PUT SLIDER HERE
+                                <Slider
+                                    min={1}
+                                    max={100}
+                                    defaultValue={30}
+                                />
                             </span>
                             <label className='options__option-label options__option-label--note'>100</label>
                         </div>
@@ -29,7 +63,7 @@ export default class Settings extends Component {
                             <span className='options__option-label options__option-label--main'>UI Theme</span>
                             <label className='options__option-label options__option-label--note'>Light</label>
                             <span className='options__ui-toggle'>
-                                PUT TOGGLE HERE
+                                <Switch size="small" onChange={this.handleUiToggle} checked={this.state.isToggled} />
                             </span>
                             <label className='options__option-label options__option-label--note'>Dark</label>
                         </div>

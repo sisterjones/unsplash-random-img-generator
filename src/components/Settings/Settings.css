@@ -42,11 +42,15 @@
 }
 
 .options{
-
+    width: 100%;
+    height: 80%;
 }
 
 .options__image-count{
-
+    width: 90%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
 }
 
 .options__ui-theme{
@@ -66,7 +70,8 @@
 }
 
 .options__image-count-slider{
-
+    width: 40%;
+    height: 100px;
 }
 
 .options__ui-toggle{

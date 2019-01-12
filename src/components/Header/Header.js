@@ -35,12 +35,14 @@ export default class Header extends Component {
                 <Modal>
                     <Settings 
                         closeModal={this.closeSettingsModal}
+                        toggleTheme={this.props.toggleTheme}
+                        theme={this.props.theme}
                     />
                 </Modal>
             )
         )
         return (
-            <header className='header'>
+            <header className={`header header--${this.props.theme}`}>
                 <div className='header__header-inner'>
                     <Logo />
                     <h1 className='header__header-title'>

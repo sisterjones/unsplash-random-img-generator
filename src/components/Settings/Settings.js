@@ -3,10 +3,10 @@ import './Settings.css'
 // import { Slider, Switch } from 'antd'
 import { 
     Slider,
-    Switch
+    Radio
  } from 'antd';  
 import 'antd/lib/slider/style/css'; 
-import 'antd/lib/switch/style/css'; 
+import 'antd/lib/radio/style/css'; 
 
 export default class Settings extends Component {
     constructor(props) {
@@ -16,34 +16,26 @@ export default class Settings extends Component {
         }
         this.closeModal = this.closeModal.bind(this)
         this.handleUiToggle = this.handleUiToggle.bind(this)
+        this.toggleTheme = this.toggleTheme.bind(this)
     }
     
     closeModal(e) {
         this.props.closeModal(e)
     }
 
+    toggleTheme(e) {
+        this.props.toggleTheme(e.target.value)
+    }
+
     handleUiToggle() {
         this.setState({
-            isToggled: !this.state.isToggled
+            isToggled: !this.state.isToggled,
         })
     }
     
     render() {
-        const steps={
-            1: '0',
-            10: '10',
-            20: '20',
-            30: '30',
-            40: '40',
-            50: '50',
-            60: '60',
-            70: '70',
-            80: '80',
-            90: '90',
-            100: '100'
-        }
         return (
-            <div className='settings'>
+            <div className={`settings settings--${this.props.theme}`}>
                 <div className='settings__container'>
                     <h2 className='settings__title'>Settings</h2>
                     <div className='options'>
@@ -61,11 +53,12 @@ export default class Settings extends Component {
                         </div>
                         <div className='options__ui-theme'>
                             <span className='options__option-label options__option-label--main'>UI Theme</span>
-                            <label className='options__option-label options__option-label--note'>Light</label>
                             <span className='options__ui-toggle'>
-                                <Switch size="small" onChange={this.handleUiToggle} checked={this.state.isToggled} />
+                                <Radio.Group defaultValue={this.props.theme} onChange={this.toggleTheme} buttonStyle="solid" size='large'>
+                                    <Radio.Button size='large' value="light">Light</Radio.Button>
+                                    <Radio.Button size='large' value="dark">Dark</Radio.Button>
+                                </Radio.Group>
                             </span>
-                            <label className='options__option-label options__option-label--note'>Dark</label>
                         </div>
                     </div>
                 </div>

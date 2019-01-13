@@ -40,7 +40,7 @@
 }
 
 .settings__title{
-
+    color: inherit;
 }
 
 .settings__close-x{
@@ -111,7 +111,6 @@
 }
 
 .ui-toggle--light:focus {
-    background: red;
 }
 
 .ui-toggle--dark:focus {

@@ -10,13 +10,21 @@ class App extends Component {
   
     this.state = {
        uiTheme: 'light',
+       sliderValue: 30,
     }
     this.toggleTheme = this.toggleTheme.bind(this)
+    this.setImageCount = this.setImageCount.bind(this)
   }
 
   toggleTheme(theme) {
     this.setState({
       uiTheme: theme,
+    })
+  }
+
+  setImageCount(e) {
+    this.setState({
+      sliderValue: e.target.value,
     })
   }
   
@@ -26,9 +34,12 @@ class App extends Component {
         <Header 
           toggleTheme={this.toggleTheme}
           theme={this.state.uiTheme}
+          sliderValue={this.state.sliderValue}
+          setImageCount={this.setImageCount}
         />
         <Wrapper 
           theme={this.state.uiTheme}
+          imageCount={this.state.sliderValue}
         />
         <Footer 
           theme={this.state.uiTheme}

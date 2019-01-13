@@ -2,7 +2,7 @@
 import { ACCESS_KEY, API_SECRET } from './config'
 
 // pulls photos from unsplash api based on dynamic query params
-export const fetchPhotos = (keyword, limit) => {
+export const fetchPhotos = (limit) => {
 
     // sets headers
     const headers = {
@@ -17,13 +17,12 @@ export const fetchPhotos = (keyword, limit) => {
     }
 
     // if no param is generated in-app, defaults to 5 to avoid failure
-    let countLimit = limit || 5
+    let countLimit = limit || 30
 
     // if specific keyword is specified in-app, it is included in query
     // otherwise query runs with no keyword param
-    const newRequest = keyword ? 
-    `https://api.unsplash.com/photos/random?count=${countLimit}&query=${keyword}&client_secret=${API_SECRET}` :
-    `https://api.unsplash.com/photos/random?count=${countLimit}&client_secret=${API_SECRET}`
+
+    const newRequest = `https://api.unsplash.com/photos/random?count=${countLimit}&client_secret=${API_SECRET}`
 
     // actual api request
     return fetch(newRequest, init).then(response => {

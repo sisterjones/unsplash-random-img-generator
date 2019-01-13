@@ -45,20 +45,18 @@ export default class Wrapper extends Component {
             isLoaded: false
         })
         let imageArray = []
-        this.state.photos.forEach(image => {
-            return image.isFrozen ?
-            imageArray.push(image)
-            : null
-        })
-        let trueCount = this.state.limit - imageArray.length
-        photoAPI.fetchPhotos(null, trueCount).then((result) => {
+        let imageCount = this.props.imageCount
+
+        if (imageCount <= 30) {
+
+
+        photoAPI.fetchPhotos(imageCount).then((result) => {
             result.forEach(image => {
                 let imageUrl = image.urls.regular
                 imageArray.push({
                     url: imageUrl,
                     id: image.id,
                     downloadLink: image.urls.full,
-                    isFrozen: false,    
                 })
                 console.log(imageUrl)
             })
@@ -66,8 +64,6 @@ export default class Wrapper extends Component {
             this.setState({
                 photos: imageArray,
                 imgNum: imageArray.length,
-                limit: 20,
-                tags: []
             })
         }).then(() => {
             this.updateHeight()
@@ -76,6 +72,159 @@ export default class Wrapper extends Component {
                 isLoaded: true
             })
         })
+    }
+
+    else if (imageCount > 30 ) {
+
+        let a = 30
+        let b = imageCount - 30
+        let c = imageCount - 60
+        let d = imageCount - 90
+
+        if (imageCount <= 60) {
+            photoAPI.fetchPhotos(a).then((result) => {
+                result.forEach(image => {
+                    let imageUrl = image.urls.regular
+                    imageArray.push({
+                        url: imageUrl,
+                        id: image.id,
+                        downloadLink: image.urls.full,
+                    })
+                    console.log(imageUrl)
+                })
+            }).then(() => {
+                photoAPI.fetchPhotos(b).then((result) => {
+                    result.forEach(image => {
+                        let imageUrl = image.urls.regular
+                        imageArray.push({
+                            url: imageUrl,
+                            id: image.id,
+                            downloadLink: image.urls.full,
+                        })
+                        console.log(imageUrl)
+                    })
+                })
+            }).then(() => {
+                this.setState({
+                    photos: imageArray,
+                    imgNum: imageArray.length,
+                })
+            }).then(() => {
+                this.updateHeight()
+            }).then(() => {
+                this.setState({
+                    isLoaded: true
+                })
+            })
+        } else if (imageCount > 60 && imageCount <= 90) {
+            photoAPI.fetchPhotos(a).then((result) => {
+                result.forEach(image => {
+                    let imageUrl = image.urls.regular
+                    imageArray.push({
+                        url: imageUrl,
+                        id: image.id,
+                        downloadLink: image.urls.full,
+                    })
+                    console.log(imageUrl)
+                })
+            }).then(() => {
+                photoAPI.fetchPhotos(a).then((result) => {
+                    result.forEach(image => {
+                        let imageUrl = image.urls.regular
+                        imageArray.push({
+                            url: imageUrl,
+                            id: image.id,
+                            downloadLink: image.urls.full,
+                        })
+                        console.log(imageUrl)
+                    })
+                })
+            }).then(() => {
+                photoAPI.fetchPhotos(c).then((result) => {
+                    result.forEach(image => {
+                        let imageUrl = image.urls.regular
+                        imageArray.push({
+                            url: imageUrl,
+                            id: image.id,
+                            downloadLink: image.urls.full,
+                        })
+                        console.log(imageUrl)
+                    })
+                })
+            }).then(() => {
+                this.setState({
+                    photos: imageArray,
+                    imgNum: imageArray.length,
+                })
+            }).then(() => {
+                this.updateHeight()
+            }).then(() => {
+                this.setState({
+                    isLoaded: true
+                })
+            })
+
+        } else if (imageCount > 90) {
+            photoAPI.fetchPhotos(a).then((result) => {
+                result.forEach(image => {
+                    let imageUrl = image.urls.regular
+                    imageArray.push({
+                        url: imageUrl,
+                        id: image.id,
+                        downloadLink: image.urls.full,
+                    })
+                    console.log(imageUrl)
+                })
+            }).then(() => {
+                photoAPI.fetchPhotos(a).then((result) => {
+                    result.forEach(image => {
+                        let imageUrl = image.urls.regular
+                        imageArray.push({
+                            url: imageUrl,
+                            id: image.id,
+                            downloadLink: image.urls.full,
+                        })
+                        console.log(imageUrl)
+                    })
+                })
+            }).then(() => {
+                photoAPI.fetchPhotos(a).then((result) => {
+                    result.forEach(image => {
+                        let imageUrl = image.urls.regular
+                        imageArray.push({
+                            url: imageUrl,
+                            id: image.id,
+                            downloadLink: image.urls.full,
+                        })
+                        console.log(imageUrl)
+                    })
+                })
+            }).then(() => {
+                photoAPI.fetchPhotos(d).then((result) => {
+                    result.forEach(image => {
+                        let imageUrl = image.urls.regular
+                        imageArray.push({
+                            url: imageUrl,
+                            id: image.id,
+                            downloadLink: image.urls.full,
+                        })
+                        console.log(imageUrl)
+                    })
+                })
+            }).then(() => {
+                this.setState({
+                    photos: imageArray,
+                    imgNum: imageArray.length,
+                })
+            }).then(() => {
+                this.updateHeight()
+            }).then(() => {
+                this.setState({
+                    isLoaded: true
+                })
+            })
+        }
+    }
     }
 
     getImagesWithQuery() {

@@ -17,6 +17,7 @@ export default class Settings extends Component {
         this.closeModal = this.closeModal.bind(this)
         this.handleUiToggle = this.handleUiToggle.bind(this)
         this.toggleTheme = this.toggleTheme.bind(this)
+        this.handleSliderChange = this.handleSliderChange.bind(this)
     }
     
     closeModal(e) {
@@ -32,6 +33,10 @@ export default class Settings extends Component {
             isToggled: !this.state.isToggled,
         })
     }
+
+    handleSliderChange(e) {
+        this.props.setImageCount(e)
+    }
     
     render() {
         return (
@@ -46,7 +51,8 @@ export default class Settings extends Component {
                                 <Slider
                                     min={1}
                                     max={100}
-                                    defaultValue={30}
+                                    value={this.props.sliderValue}
+                                    onChange={this.handleSliderChange}
                                 />
                             </span>
                             <label className='options__option-label options__option-label--note'>100</label>

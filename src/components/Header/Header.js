@@ -13,6 +13,7 @@ export default class Header extends Component {
       }
       this.openSettingsModal = this.openSettingsModal.bind(this)
       this.closeSettingsModal = this.closeSettingsModal.bind(this)
+      this.setImageCount = this.setImageCount.bind(this)
     }
 
     openSettingsModal() {
@@ -27,6 +28,10 @@ export default class Header extends Component {
         })
     }
 
+    setImageCount(e) {
+        this.props.setImageCount(e)
+    }
+
 
     
     render() {
@@ -37,6 +42,8 @@ export default class Header extends Component {
                         closeModal={this.closeSettingsModal}
                         toggleTheme={this.props.toggleTheme}
                         theme={this.props.theme}
+                        sliderValue={this.props.sliderValue}
+                        setImageCount={this.setImageCount}
                     />
                 </Modal>
             )

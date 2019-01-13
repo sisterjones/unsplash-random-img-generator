@@ -46,29 +46,34 @@ export default class Settings extends Component {
                     <div className='options'>
                         <div className='options__image-count'>
                             <span className='options__option-label options__option-label--main'>Image Count</span>
-                            <label className='options__option-label options__option-label--note'>1</label>
-                            <span className='options__image-count-slider'>
-                                <Slider
-                                    min={1}
-                                    max={100}
-                                    value={this.props.sliderValue}
-                                    onChange={this.handleSliderChange}
-                                />
-                            </span>
-                            <label className='options__option-label options__option-label--note'>100</label>
+                            <div className='options__option-interact'>
+                                <label className='options__option-label options__option-label--note'>1</label>
+                                <span className='options__image-count-slider'>
+                                    <Slider
+                                        min={1}
+                                        max={100}
+                                        value={this.props.sliderValue}
+                                        onChange={this.handleSliderChange}
+                                    />
+                                </span>
+                                <label className='options__option-label options__option-label--note'>100</label>
+                            </div>
                         </div>
                         <div className='options__ui-theme'>
                             <span className='options__option-label options__option-label--main'>UI Theme</span>
-                            <span className='options__ui-toggle'>
-                                <Radio.Group defaultValue={this.props.theme} onChange={this.toggleTheme} className={`ui-toggle--${this.props.theme}`} buttonStyle="solid" size='large'>
-                                    <Radio.Button size='large' className={`ui-toggle--${this.props.theme}`} value="light">Light</Radio.Button>
-                                    <Radio.Button size='large' className={`ui-toggle--${this.props.theme}`} value="dark">Dark</Radio.Button>
-                                </Radio.Group>
-                            </span>
+                            <div className='options__option-interact'>
+                                <span className='options__ui-toggle'>
+                                    <Radio.Group defaultValue={this.props.theme} onChange={this.toggleTheme} className={`ui-toggle--${this.props.theme}`} buttonStyle="solid" size='large'>
+                                        <Radio.Button size='large' className={`ui-toggle--${this.props.theme}`} value="light">Light</Radio.Button>
+                                        <Radio.Button size='large' className={`ui-toggle--${this.props.theme}`} value="dark">Dark</Radio.Button>
+                                    </Radio.Group>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <a className={`settings__close-x settings__close-x--${this.props.theme}`} onClick={this.closeModal}>+</a>
+                <a className={`settings__close-x settings__action--${this.props.theme}`} onClick={this.closeModal}>+</a>
+                <a className={`settings__ok settings__action--${this.props.theme}`} onClick={this.closeModal}>Ok</a>
             </div>
         )
     }

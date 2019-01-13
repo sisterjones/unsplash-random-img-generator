@@ -1,8 +1,6 @@
 .settings {
     height: 100vh;
     width: 100vw;
-    background: rgba(0,0,0,.6);
-    color: rgb(19,19,19);
     position: fixed;
     top: 0;
     left: 0;
@@ -13,14 +11,32 @@
     text-align: center;
 }
 
+.settings--light {
+    background: rgba(0,0,0,.6);
+}
+
+.settings--dark {
+    background: rgba(0,0,0,.4);
+}
+
 .settings__container{
     height: 70vh;
     width: 50vw;
-    background: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-radius: 4px;
+}
+
+.settings__container--light {
+    color: rgb(19,19,19);
+    background: white;
+}
+
+.settings__container--dark {
+    background: rgb(19,19,19);
+    color: white;
 }
 
 .settings__title{
@@ -35,6 +51,14 @@
     margin: 0;
     padding: 0;
     font-size: 32px;
+}
+
+.settings__close-x--light {
+    color: rgb(53, 157, 255);
+}
+
+.settings__close-x--dark {
+    color: rgb(255, 152, 93);
 }
 
 .settings__close-x:hover {
@@ -76,4 +100,20 @@
 
 .options__ui-toggle{
 
+}
+
+.ui-toggle--light {
+
+}
+
+.ui-toggle--dark {
+
+}
+
+.ui-toggle--light:focus {
+    background: red;
+}
+
+.ui-toggle--dark:focus {
+    
 }

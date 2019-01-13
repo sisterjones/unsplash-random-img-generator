@@ -36,7 +36,7 @@ export default class Settings extends Component {
     render() {
         return (
             <div className={`settings settings--${this.props.theme}`}>
-                <div className='settings__container'>
+                <div className={`settings__container settings__container--${this.props.theme}`}>
                     <h2 className='settings__title'>Settings</h2>
                     <div className='options'>
                         <div className='options__image-count'>
@@ -54,15 +54,15 @@ export default class Settings extends Component {
                         <div className='options__ui-theme'>
                             <span className='options__option-label options__option-label--main'>UI Theme</span>
                             <span className='options__ui-toggle'>
-                                <Radio.Group defaultValue={this.props.theme} onChange={this.toggleTheme} buttonStyle="solid" size='large'>
-                                    <Radio.Button size='large' value="light">Light</Radio.Button>
-                                    <Radio.Button size='large' value="dark">Dark</Radio.Button>
+                                <Radio.Group defaultValue={this.props.theme} onChange={this.toggleTheme} className={`ui-toggle--${this.props.theme}`} buttonStyle="solid" size='large'>
+                                    <Radio.Button size='large' className={`ui-toggle--${this.props.theme}`} value="light">Light</Radio.Button>
+                                    <Radio.Button size='large' className={`ui-toggle--${this.props.theme}`} value="dark">Dark</Radio.Button>
                                 </Radio.Group>
                             </span>
                         </div>
                     </div>
                 </div>
-                <a className='settings__close-x' onClick={this.closeModal}>+</a>
+                <a className={`settings__close-x settings__close-x--${this.props.theme}`} onClick={this.closeModal}>+</a>
             </div>
         )
     }

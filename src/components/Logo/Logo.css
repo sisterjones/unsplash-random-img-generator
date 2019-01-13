@@ -1,7 +1,12 @@
 .logo {
     width: 10%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: baseline;
+}
+
+.logo__image {
+    width: 40px;
+    height: auto;
 }

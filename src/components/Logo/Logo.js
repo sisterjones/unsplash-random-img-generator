@@ -1,11 +1,12 @@
 import React from 'react'
 import './Logo.css'
-import logo from './../../Assets/Images/Logo.svg'
+import logoLight from './../../Assets/Images/Atoms/Logo/Brand/Sign.svg'
+import logoDark from './../../Assets/Images/Atoms/Logo/Brand/Sign Copy.svg'
 
 const Logo = (props) => {
     return (
-        <div className='logo'>
-            <img className='logo__image' src={logo} alt='RIG logo' />
+        <div className={`logo logo--${props.theme}`}>
+            <img className={`logo__image`} src={props.theme === 'light' ? logoLight : logoDark} alt='RIG logo' />
         </div>
     )
 }

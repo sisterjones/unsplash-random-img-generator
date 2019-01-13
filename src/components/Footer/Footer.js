@@ -16,7 +16,7 @@ const Footer = (props) =>  {
     }
 
         return (
-            <footer className='footer'>
+            <footer className={`footer footer--${props.theme}`}>
                 I am the footer
                 <a onClick={toTop}>Back to Top</a>
             </footer>

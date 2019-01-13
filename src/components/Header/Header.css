@@ -26,7 +26,7 @@
     width: 80vw;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 }
 
 .header__header-title {
@@ -35,6 +35,7 @@
     text-transform: uppercase;
     font-size: 32px;
     width: 80%;
+    margin: 0;
     letter-spacing: 6px;
     /* margin-left: 22vw; */
     color: inherit;

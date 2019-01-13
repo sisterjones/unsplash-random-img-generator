@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Atoms / Logo / Brand / Sign Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Atoms-/-Logo-/-Brand-/-Sign-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3">
+            <path d="M10,0 L60,0 C65.5228475,-1.01453063e-15 70,4.4771525 70,10 L70,60 C70,65.5228475 65.5228475,70 60,70 L10,70 C4.4771525,70 6.76353751e-16,65.5228475 0,60 L0,10 C-6.76353751e-16,4.4771525 4.4771525,1.01453063e-15 10,0 Z" id="Rectangle-2" fill="#FF985D"></path>
+            <g id="Group-2" transform="translate(6.000000, 6.000000)" stroke="#FFFFFF">
+                <g id="Group" transform="translate(7.000000, 0.000000)" fill="#FFFFFF">
+                    <polygon id="Path-9" points="0 0 11.5789474 0 11.5789474 58 0 58"></polygon>
+                    <polygon id="Path-9-Copy" points="32.4210526 0 44 0 44 58 32.4210526 58"></polygon>
+                </g>
+                <path d="M2.50007109,10.386204 C20.9436123,-17.613796 38.058809,73.9659964 56.1846695,47.6761002 C74.3105301,21.386204 -15.9434702,38.386204 2.50007109,10.386204 Z" id="Path-12" stroke-width="3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

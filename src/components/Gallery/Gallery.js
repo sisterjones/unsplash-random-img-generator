@@ -56,7 +56,7 @@ class Gallery extends React.Component {
         }
 
         return (
-            <div className='gallery'>
+            <div className={`gallery gallery---${this.props.theme}`}>
                 <div id='gallery' style={columnHeight} className='gallery__wrapping-column'>
                     {this.mapImages()}
                 </div>

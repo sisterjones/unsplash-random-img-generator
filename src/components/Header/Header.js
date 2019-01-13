@@ -44,7 +44,9 @@ export default class Header extends Component {
         return (
             <header className={`header header--${this.props.theme}`}>
                 <div className='header__header-inner'>
-                    <Logo />
+                    <Logo 
+                        theme={this.props.theme}
+                    />
                     <h1 className='header__header-title'>
                         Random Image Generator
                     </h1>

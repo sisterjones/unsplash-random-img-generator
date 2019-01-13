@@ -27,8 +27,12 @@ class App extends Component {
           toggleTheme={this.toggleTheme}
           theme={this.state.uiTheme}
         />
-        <Wrapper />
-        <Footer />
+        <Wrapper 
+          theme={this.state.uiTheme}
+        />
+        <Footer 
+          theme={this.state.uiTheme}
+        />
       </div>
     );
   }

@@ -16,13 +16,22 @@ height: 60px;
 }
 
 .button--generate-images {
-    color: white;
     border-radius: 4px;
     transition: .2s;
-    background-image: linear-gradient(90deg, rgb(0, 9, 88) -100%, rgb(0, 9, 88) 10%,rgb(53, 157, 255) 50%, rgb(53, 157, 255) 90%, rgb(53, 157, 255) 140%,  rgb(53, 157, 255) 200%, rgb(0, 9, 88) 250%);
-    background-size: 100vw;
     margin-bottom: 10vh;
-}   
+}  
+
+.button--generate-images--light {
+    color: white;
+    background-image: linear-gradient(90deg, rgb(53, 157, 255) -100%, rgb(53, 157, 255) 10%,rgb(53, 157, 255) 50%, rgb(53, 157, 255) 90%, rgb(53, 157, 255) 140%,  rgb(53, 157, 255) 200%, rgb(53, 157, 255) 250%);
+    background-size: 100vw;
+}  
+
+.button--generate-images--dark {
+    color: white;
+    background-image: linear-gradient(90deg, rgb(255, 152, 93) -100%, rgb(255, 152, 93) 10%,rgb(253, 115, 72) 50%, rgb(253, 115, 72) 90%, rgb(253, 115, 72) 140%,  rgb(253, 115, 72) 200%, rgb(255, 170, 72) 250%);
+    background-size: 100vw;
+} 
 
 .button--generate-images:hover {
     color: white;

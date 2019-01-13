@@ -52,7 +52,7 @@ const Controls = (props) => {
 
     return (
         // controls container 
-        <div className='controls'>
+        <div className={`controls controls--${props.theme}`}>
 
             {/* 'tags' and input for said tags */}
             {/* <Keywords 
@@ -71,7 +71,7 @@ const Controls = (props) => {
 
             {/* generates dynamic quantity and type of images based on parent state */}
             <Button
-                buttonModifier='generate-images'
+                buttonModifier={`generate-images button--generate-images--${props.theme}`}
                 handleButtonClick={submitSearch}
                 buttonText='Generate'
             />

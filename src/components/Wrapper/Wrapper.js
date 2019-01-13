@@ -306,10 +306,7 @@ export default class Wrapper extends Component {
     
     render() {
         return (
-            <div class='body-wrapper'>
-                <div>
-                {!this.state.isLoaded && <p style={{color: 'black', fontSize:'80px'}}>butthole thank you butthole nice</p>}
-                    </div>
+            <div class={`body-wrapper body-wrapper--${this.props.theme}`}>
                 <Controls 
                     updateSearchSettings={this.updateSearchSettings}
                     getImagesWithQuery={this.getImagesWithQuery}
@@ -322,12 +319,14 @@ export default class Wrapper extends Component {
                     removeTag={this.removeTag}
                     decrementCounter={this.decrementCounter}
                     incrementCounter={this.incrementCounter}
+                    theme={this.props.theme}
                 />
                 <Gallery 
                     photos={this.state.photos}
                     updateHeight={this.updateHeight}
                     freezeImage={this.freezeImage}
                     imagesHeight={this.state.imagesHeight}
+                    theme={this.props.theme}
                 />
             </div>
         )

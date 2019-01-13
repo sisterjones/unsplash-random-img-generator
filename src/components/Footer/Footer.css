@@ -1,8 +1,14 @@
 .footer {
-    height: 60px;
+    height: 200px;
     width: 100vw;
     position: relative;
-    background: black;
-    color: white;
+    background: transparent;
 }
 
+.footer--light {
+    color: black;
+}
+
+.footer--dark {
+    color: white;
+}

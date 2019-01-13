@@ -22,9 +22,9 @@ class App extends Component {
     })
   }
 
-  setImageCount(e) {
+  setImageCount(newValue) {
     this.setState({
-      sliderValue: e.target.value,
+      sliderValue: newValue,
     })
   }
   

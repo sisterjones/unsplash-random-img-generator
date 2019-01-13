@@ -34,8 +34,8 @@ export default class Settings extends Component {
         })
     }
 
-    handleSliderChange(e) {
-        this.props.setImageCount(e)
+    handleSliderChange(newValue) {
+        this.props.setImageCount(newValue)
     }
     
     render() {

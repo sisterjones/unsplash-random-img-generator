@@ -13,13 +13,7 @@ const Controls = (props) => {
         props.updateSearchSettings(e)
     }
 
-    // gets photos with a query based on query set in parent state
-    // very cool
-    const submitSearch = () => {
-        props.getImagesWithQuery()
-    }
-
-    // gets 20 random images without a query param
+    // gets n number of random images without a quantity param
     const getImages = () => {
         props.getImages()
     }
@@ -72,7 +66,7 @@ const Controls = (props) => {
             {/* generates dynamic quantity and type of images based on parent state */}
             <Button
                 buttonModifier={`generate-images button--generate-images--${props.theme}`}
-                handleButtonClick={submitSearch}
+                handleButtonClick={getImages}
                 buttonText='Generate'
             />
             {/* <div className='controls__reset-controls'> */}

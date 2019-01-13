@@ -28,8 +28,8 @@ export default class Header extends Component {
         })
     }
 
-    setImageCount(e) {
-        this.props.setImageCount(e)
+    setImageCount(newValue) {
+        this.props.setImageCount(newValue)
     }
 
 

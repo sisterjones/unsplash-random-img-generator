@@ -1,8 +1,12 @@
 .footer {
-    height: 200px;
+    height: auto;
     width: 100vw;
     position: relative;
     background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .footer--light {
@@ -12,3 +16,121 @@
 .footer--dark {
     color: white;
 }
+
+.footer__top {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer__copyright {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+a {
+    color: inherit;
+}
+
+.footer__copyright--link {
+
+}
+
+.footer__copyright--link:hover {
+    text-decoration: underline;
+    color: inherit;
+} 
+
+.footer__back-to-top {
+    font-size: 22px;
+    text-align: center;
+} 
+
+.footer__back-to-top--light:hover {
+    text-decoration: underline;
+    color: rgb(53, 157, 255);
+}   
+
+.footer__back-to-top--dark:hover {
+    text-decoration: underline;
+    color: rgb(255, 152, 93);
+}   
+
+.footer__back-to-top--light {
+    color: rgb(53, 157, 255);
+}
+
+.footer__back-to-top--dark {
+    color: rgb(255, 152, 93);
+}
+
+.footer__reset-grid {
+    width: 33%;
+    text-align: right;
+} 
+
+.footer__reset-grid:hover {
+    text-decoration: underline;
+    color: inherit;
+} 
+
+.footer__bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 80%;
+}
+
+.footer__logo {
+    margin: 20px 0 10px 0;
+} 
+
+.footer__rule {
+    width: 90vw;
+}
+
+.footer__rule--light {
+    border-color: rgb(221, 221, 221);
+}
+
+.footer__rule--dark {
+    color: white;
+}
+
+.footer__attribution {
+    font-size: 12px;
+}
+
+.footer__attribution--light {
+    color: rgb(107, 107, 107);
+} 
+
+.footer__attribution--dark {
+    color: rgb(185, 185, 185);
+}
+
+.footer__attribution--link--light {
+    color: black;
+} 
+
+.footer__attribution--link--dark {
+    color: white;
+} 
+
+.footer__attribution--link:hover {
+    text-decoration: underline;
+}
+
+.footer__attribution--link--light:hover {
+    color: black;
+} 
+
+.footer__attribution--link--dark:hover {
+    color: white;
+} 

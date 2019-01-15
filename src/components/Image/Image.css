@@ -4,6 +4,13 @@
     position: relative;
 }
 
+@media only screen and (max-width: 600px) {
+    .image-container {
+        width: 100%;
+        margin: 3px 0;
+    }
+}
+
 .image-container__image {
     height: auto;
     width: 100%;

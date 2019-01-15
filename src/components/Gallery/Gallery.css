@@ -2,8 +2,14 @@
     width: 80vw;
 }
 
+@media only screen and (max-width: 600px) {
+    .gallery{
+        width: 95vw;
+    }
+}
+
 .gallery__wrapping-column {
-    max-width: 80vw;
+    /* max-width: 80vw; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

@@ -51,8 +51,10 @@ class Gallery extends React.Component {
 
     render() {
 
+        let x = 2.7
+
         let columnHeight = {
-            height: this.props.imagesHeight / 2.7,
+            height: window.innerWidth > 600 ? this.props.imagesHeight / x : this.props.imageHeight + 500,
         }
 
         return (

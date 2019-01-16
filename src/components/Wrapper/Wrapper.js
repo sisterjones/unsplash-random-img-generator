@@ -213,8 +213,9 @@ export default class Wrapper extends Component {
         let newImagesHeight = 0 
         if (this.state.isLoaded) {
             photos.forEach(image => {
-                let newHeight = document.getElementById(image.id).height 
-                newImagesHeight += newHeight
+                let newHeight = document.getElementById(image.id).height
+                let imgHeight = newHeight + 8
+                newImagesHeight += imgHeight
                 console.log(newImagesHeight)
             })
         }

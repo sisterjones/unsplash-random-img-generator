@@ -6,6 +6,7 @@ import { Spin } from 'antd'
 import 'antd/lib/spin/style/css'; 
 import uuidv4 from 'uuid/v4'
 import './Wrapper.css'
+import { relativeTimeRounding } from 'moment';
 
 export default class Wrapper extends Component {
     constructor(props) {
@@ -15,25 +16,41 @@ export default class Wrapper extends Component {
             imgNum: 0,
             isLoaded: false,
             imagesHeight: 0,
+            offset: document.documentElement.scrollHeight,
         }
         this.getImages = this.getImages.bind(this)
         this.updateHeight = this.updateHeight.bind(this)
         this.newHeight = this.newHeight.bind(this)
         this.updateHeightSecondary = this.updateHeightSecondary.bind(this)
+        this.handleScrollLoadEvent = this.handleScrollLoadEvent.bind(this)
+        this.getOffset = this.getOffset.bind(this)
     }
 
     componentDidMount() {
         this.getImages()
+        let body = document.getElementById('body-wrap')
+        document.documentElement.addEventListener("scroll", this.handleScrollLoadEvent)
+    }
+
+    handleScrollLoadEvent(e) {
+        console.log(window.pageYOffset)
+        // if (this.props.reload === true) {
+        //     this.getImages()
+        // }
+        // if (document.documentElement.scrollHeight >= e.target.id.height) {
+            
+        // }
     }
 
     getImages() {
-        this.setState({
-            isLoaded: false
-        })
+        
         let imageArray = []
         let imageCount = this.props.imageCount
 
-        if (imageCount <= 30) {
+        if (this.state.photos.length < 30) {
+            this.setState({
+                isLoaded: false
+            })
             photoAPI.fetchPhotos(imageCount).then((result) => {
                 result.forEach(image => {
                     let imageUrl = image.urls.regular
@@ -46,7 +63,7 @@ export default class Wrapper extends Component {
                 })
             }).then(() => {
                 this.setState({
-                    photos: imageArray,
+                    photos: [...imageArray],
                     imgNum: imageArray.length,
                 })
             }).then(() => {
@@ -56,7 +73,7 @@ export default class Wrapper extends Component {
                     isLoaded: true
                 })
             })
-        } else if (imageCount > 30 ) {
+        } else if (this.state.photos.length >= 30 ) {
             let a = 30
             let b = imageCount - 30
             let c = imageCount - 60
@@ -85,7 +102,7 @@ export default class Wrapper extends Component {
                         })
                 }).then(() => {
                     this.setState({
-                        photos: imageArray,
+                        photos: [...this.state.photos, ...imageArray],
                         imgNum: imageArray.length,
                     })
                 }).then(() => {
@@ -131,7 +148,7 @@ export default class Wrapper extends Component {
                         })
                 }).then(() => {
                     this.setState({
-                        photos: imageArray,
+                        photos: [...this.state.photos, imageArray],
                         imgNum: imageArray.length,
                     })
                 }).then(() => {
@@ -190,7 +207,7 @@ export default class Wrapper extends Component {
                     })
             }).then(() => {
                 this.setState({
-                    photos: imageArray,
+                    photos: [...this.state.photos, imageArray],
                     imgNum: imageArray.length,
                 })
             }).then(() => {
@@ -209,19 +226,19 @@ export default class Wrapper extends Component {
 
     newHeight() {
         console.log('hi')
-        let photos = this.state.photos
-        let newImagesHeight = 0 
-        if (this.state.isLoaded) {
-            photos.forEach(image => {
-                let newHeight = document.getElementById(image.id).height
-                let imgHeight = newHeight + 8
-                newImagesHeight += imgHeight
-                console.log(newImagesHeight)
-            })
-        }
-        this.setState({
-            imagesHeight: newImagesHeight,
-        })
+        // let photos = this.state.photos
+        // let newImagesHeight = 0 
+        // if (this.state.isLoaded) {
+        //     photos.forEach(image => {
+        //         let newHeight = document.getElementById(image.id).height
+        //         let imgHeight = newHeight + 8
+        //         newImagesHeight += imgHeight
+        //         console.log(newImagesHeight)
+        //     })
+        // }
+        // this.setState({
+        //     imagesHeight: 10,
+        // })
     }
 
     updateHeight() {
@@ -232,12 +249,16 @@ export default class Wrapper extends Component {
         setTimeout(this.newHeight, 2000)
     }
 
+    getOffset() {
+        console.log(this.state.offset)
+    }
   
 
     
     render() {
         return (
-            <div class={`body-wrapper body-wrapper--${this.props.theme}`}>
+            <div id='body-wrap' onScroll={this.handleScrollLoadEvent()} class={`body-wrapper body-wrapper--${this.props.theme}`}>
+                {this.getOffset()}
                 <Controls 
                     getImages={this.getImages}
                     updateHeight={this.updateHeight}
@@ -254,6 +275,7 @@ export default class Wrapper extends Component {
                     theme={this.props.theme}
                 />
                 }
+                <button onClick={this.getImages}>Load More</button>
             </div>
         )
     }

@@ -61,7 +61,21 @@ const Wrapper = (props) => {
 			.then(() => {
 				setIsLoaded(true);
 			});
-	};
+    };
+    
+    const handleLoadMore = () => {
+        let height = window.pageYOffset
+        console.log(height)
+        async function loadThenScroll() {
+            await getImages()
+            let scrollOptions = {
+                top: height,
+                left: 0,
+            }
+            window.scrollTo(scrollOptions)
+        }
+       loadThenScroll()
+    }
 
 	
 
@@ -78,7 +92,7 @@ const Wrapper = (props) => {
 					getImages={getImages}
 				/>
 			)}
-			<button onClick={getImages}>LoadMore</button>
+			<button className='styled-button secondary give-space' onClick={handleLoadMore}>Load More</button>
 		</div>
 	);
 };

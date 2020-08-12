@@ -1,9 +1,37 @@
 .body-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100vw;
-    overflow-wrap: break-word;
-    overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100vw;
+	overflow-wrap: break-word;
+	overflow: hidden;
+}
+
+.styled-button {
+	height: 40px;
+	width: auto;
+	padding: 0 40px;
+	border-radius: 8px;
+	border: 1px solid;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+    transition: 0.2s;
+    cursor: pointer;
+	&:hover {
+		transition: 0.2s;
+	}
+	&.secondary {
+		background: white;
+		color: #6973ff;
+		border-color: #6973ff;
+		&:hover {
+			background: #6973ff;
+			color: white;
+		}
+	}
+	&.give-space {
+		margin: 40px;
+	}
 }

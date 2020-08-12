@@ -1,143 +1,175 @@
-import React, {useState, useEffect} from 'react'
-import Image from './../Image/Image'
-import './Gallery.css'
+import React, {
+	useState,
+	useEffect,
+	useLayoutEffect,
+	forwardRef,
+	useRef,
+	Suspense,
+	lazy,
+} from 'react';
+// import Image from './../Image/Image';
+import './Gallery.scss';
 
-class Gallery extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            imgNum: 0,
-            query: '',
-            frozenCount: 0,
-        }
-        this.updateHeight = this.updateHeight.bind(this)
-        this.freezeImage = this.freezeImage.bind(this)
-        this.mapColumnA = this.mapColumnA.bind(this)
-        this.mapColumnB = this.mapColumnB.bind(this)
-        this.mapColumnC = this.mapColumnC.bind(this)
-    }
+const LazyImage = lazy(() => import('./../Image/Image'));
 
-    componentDidMount() {
-        setTimeout(this.updateHeight, 700)
-    }
+const Fallback = (props) => {
+	return <div style={{
+        height: '100%',
+        width: '100%',
+        minHeight: 120,
+        minWidth: 120,
+        backgroundColor: getBGColor(),
+        transition: '.3s ease',
+    }}></div>;
+};
 
+const getBGColor = () => {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16)
+    let RG = randomColor.substr(0, 4)
+    let forceBlueish = RG.concat('ff')
+    console.log(forceBlueish)
+    return `#${forceBlueish}77`
+}
 
-    updateHeight() {
-        setTimeout(this.props.updateHeight, 900)
-    }
+const Gallery = (props) => {
+	const [justRan, setJustRan] = useState(false);
+	const [running, setRunning] = useState(false);
+	const [heights, setHeights] = useState({ a: 0, b: 0, c: 0 });
+	const [didLazyLoad, setDidLazyLoad] = useState(false);
 
-    freezeImage(e) {
-        let updatedImageState = this.props.photos 
-        let imgIndex = updatedImageState.map(img => {return img.id}).indexOf(e.target.id)
-        let imgToUpdate = updatedImageState[imgIndex]
-        imgToUpdate.isFrozen = !imgToUpdate.isFrozen 
-        this.props.freezeImage(updatedImageState)
-    }
+	// useLayoutEffect(() => {
+	// 	checkColHeights()
+	// }, [props.photos.colC.length]);
 
-    mapColumnA() {
-        if (this.props.photos !== []) {
+	// 	const a = useRef(null)
+	// 	const b = useRef(null)
+	// 	const c = useRef(null)
+	const galleryRef = useRef(null);
 
-            let portionLength = this.props.photos.length / 3
+	// useLayoutEffect(() => {
+	//     if (didLazyLoad) {
+	//         return
+	//     }
+	//     setTimeout(() => {
 
-            let startPoint = 0
+	//         document.addEventListener("scroll", checkScroll())
+	//     }, 3000)
+	// })
 
-            let endPoint = portionLength
+	// const checkColHeights = () => {
 
-            let colA = this.props.photos.slice(startPoint, endPoint)
+	// 	let currentHeights = {
+	// 		a: a.clientHeight,
+	// 		b: b.clientHeight,
+	// 		c: c.clientHeight,
+	// 	};
 
-            let photoSet = colA.map((image) => (
-                <Image 
-                    imageSource={image.url} 
-                    altTag='randomly generated from Unsplash.com'
-                    id={image.id}
-                    downloadLink={image.downloadLink}
-                    key={`img-${image.id}`}
-                />
-        ))
-        return photoSet
-        } else {
-            return
-        }
-    }
+	// 	let shortest = Math.min(
+	// 		currentHeights.a,
+	// 		currentHeights.b,
+	// 		currentHeights.c
+	// 	);
 
-    mapColumnB() {
-        if (this.props.photos !== []) {
+	// 	let len = props.photos.colA.length
 
-            let portionLength = this.props.photos.length / 3
+	// 	let options = {
+	// 		root: document.getElementById('scroll-watch'),
+	// 		rootMargin: '0px',
+	// 		threshold: 1.0
+	// 	  }
 
-            let startPoint = portionLength
+	// 	let obs = new IntersectionObserver(doLog, options)
 
-            let endPoint = portionLength * 2
+	// 	let el = document.getElementById('colA')
 
-            let colB = this.props.photos.slice(startPoint, endPoint)
+	// 	obs.observe(el)
 
-            let photoSet = colB.map((image) => (
-                <Image 
-                    imageSource={image.url} 
-                    altTag='randomly generated from Unsplash.com'
-                    id={image.id}
-                    downloadLink={image.downloadLink}
-                    key={`img-${image.id}`}
-                />
-        ))
-        return photoSet
-        } else {
-            return
-        }
-    }
+	// };
 
-    mapColumnC() {
-        if (this.props.photos !== []) {
+	// const doLog = (entries, obs) => {
+	// 	entries.forEach(entry => {
+	// 		console.log(entry, obs)
+	// 	})
+	// 	console.log('yeah')
 
-            let portionLength = this.props.photos.length / 3
+	// }
 
-            let startPoint = portionLength * 2
+	// const doGetImages = () => {
+	// 	setRunning(true)
+	// 	return props.getImages();
+	// };
+	let lastRef = useRef();
 
-            let endPoint = portionLength * 3
+	const checkScroll = () => {
+		console.log('hi');
+		if (didLazyLoad) {
+			return;
+		}
+		if (!lastRef) {
+			return;
+		}
+		if (lastRef && lastRef.current) {
+			console.log('hi again');
+			let scrollHeight = window.pageYOffset;
+			let bottom = lastRef.current.clientTop;
+			let withOffset = bottom - 300;
+			console.log(scrollHeight, bottom, withOffset);
+			if (scrollHeight >= withOffset) {
+				async function doGetImages() {
+					await props.getImages();
+					setDidLazyLoad(true);
+				}
+				doGetImages();
+			}
+		}
+	};
 
-            let colC = this.props.photos.slice(startPoint, endPoint)
+	const mapColumn = (col, hasLast) => {
+		console.log(hasLast);
+		console.log(lastRef, lastRef.current);
+		let photoSet = col.map((image, idx) => (
+			<Suspense fallback={<Fallback />}>
+				<LazyImage
+					imageSource={image.url}
+					altTag='randomly generated from Unsplash.com'
+					id={image.id}
+					downloadLink={image.downloadLink}
+					key={`img-${image.id}`}
+					ref={hasLast && idx === col.length - 1 ? lastRef : null}
+				/>
+			</Suspense>
+		));
+		return photoSet;
+	};
 
-            let photoSet = colC.map((image) => (
-                <Image 
-                    imageSource={image.url} 
-                    altTag='randomly generated from Unsplash.com'
-                    id={image.id}
-                    downloadLink={image.downloadLink}
-                    key={`img-${image.id}`}
-                />
-        ))
-        return photoSet
-        } else {
-            return
-        }
-    }
-
-    render() {
-
-        // let x = 2.7
-
-        // let columnHeight = {
-        //     minHeight: window.innerWidth > 600 ? this.props.imagesHeight / 3 : this.props.imageHeight + 500,
-        //     maxHeight: window.innerWidth > 600 ? this.props.imagesHeight / 2.4 : this.props.imageHeight + 500,
-        // }
-
-        return (
-            <div className={`gallery gallery---${this.props.theme}`}>
-                <div id='gallery' className='gallery__wrapping-column'>
-                    <div className='gallery__image-column gallery__image-column--left'>
-                        {this.mapColumnA()}
-                    </div>
-                    <div className='gallery__image-column gallery__image-column--center'>
-                        {this.mapColumnB()}
-                    </div>
-                    <div className='gallery__image-column gallery__image-column--right'>
-                        {this.mapColumnC()}
-                    </div>
-                </div>
-                
-            </div>
-        )
-    }
-    }
-
-export default Gallery
+	return (
+		<div className={`gallery gallery---${props.theme}`}>
+			<div id='scroll-watch'></div>
+			<div
+				id='gallery'
+				className='gallery__wrapping-column'
+				ref={galleryRef}
+			>
+				<div
+					id='colA'
+					className='gallery__image-column gallery__image-column--left'
+				>
+					{mapColumn(props.photos.colA)}
+				</div>
+				<div
+					id='colB'
+					className='gallery__image-column gallery__image-column--center'
+				>
+					{mapColumn(props.photos.colB)}
+				</div>
+				<div
+					id='colC'
+					className='gallery__image-column gallery__image-column--right'
+				>
+					{mapColumn(props.photos.colC, true)}
+				</div>
+			</div>
+		</div>
+	);
+};
+export default Gallery;

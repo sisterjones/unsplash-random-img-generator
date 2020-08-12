@@ -1,89 +1,94 @@
 .image-container {
-    width: calc(100% - 8px);
-    margin: 4px 4px;
+	width: calc(100% - 16px);
+	margin: 8px 8px;
     position: relative;
+    transition: .3s ease;
 }
 
 @media only screen and (max-width: 600px) {
     .image-container {
         width: calc(100% - 6px);
-        margin: 3px 0;
-    }
+		margin: 3px 0;
+	}
 }
 
 .image-container__image {
     height: auto;
-    width: 100%;
+	width: 100%;
+    transition: .3s ease;
 }
 
 .hover-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(255,255,255,.4);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 0.4);
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: flex-start;
 }
 
 .hover-content__icon-wrapper {
-    margin-top: 10px;
-    margin-right: 10px;
-    height: auto;
-    width: 12%;
+	margin-top: 10px;
+	margin-right: 10px;
+	height: auto;
+	width: 12%;
 }
 
 .hover-content__icon {
-    color: rgba(0,0,0,.7);
-    height: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	color: rgba(0, 0, 0, 0.7);
+	height: auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .hover-content__icon--check {
-    transition: .4s;
-    animation-name: download-check;
-    animation-duration: 2s;
-    animation-play-state: running;
-    animation-iteration-count: 1;
+	transition: 0.4s;
+	animation-name: download-check;
+	animation-duration: 2s;
+	animation-play-state: running;
+	animation-iteration-count: 1;
 }
 
 .hover-content__icon--download {
-
 }
 
 .hover-content__icon--rotate {
-    animation-name: download-rotate;
-    animation-duration: .8s;
-    animation-play-state: running;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease;
+	animation-name: download-rotate;
+	animation-duration: 0.8s;
+	animation-play-state: running;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
 }
 
 .hover-content__icon--hover:hover {
-    color: black;
-    cursor: pointer;
+	color: black;
+	cursor: pointer;
 }
 
 .hover-content__icon--source {
-    padding: 6px;
+	padding: 6px;
 }
 
 .hover-content__icon-link {
-
 }
 
 .hover-content__icon-link--source {
-
 }
 
 @keyframes download-rotate {
-    0% {transform: rotate(0deg);}
-    50% {transform: rotate(180deg);}
-    100% {transform: rotate(360deg);}
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
